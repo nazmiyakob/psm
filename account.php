@@ -54,7 +54,7 @@
             <div class="pad1">
               <h3>Register</h3>
               <div class="row"> IC Number :<br>
-                <input type="number" class="input" name="ic_no">
+                <input type="text" class="input" name="ic_no">
               </div>
               <div class="row"> Full Name :<br>
                 <input type="text" class="input" name="full_name">
@@ -66,7 +66,7 @@
                 <input type="text" class="input" name="email">
               </div>
               <div class="row"> Phone Number :<br>
-                <input type="number" class="input" name="phone_number">
+                <input type="text" class="input" name="phone_number">
               </div>
 
               <div class="row_select">
@@ -80,7 +80,7 @@
             <div class="pad1">
               <h3>Log In</h3>
               <div class="row"> IC Number :<br>
-                <input type="number" class="input" name="ic_no">
+                <input type="text" class="input" name="ic_no">
               </div>
               <div class="row"> Password :<br>
                 <input type="password" class="input" name="password">

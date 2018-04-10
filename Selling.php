@@ -55,74 +55,69 @@
         <article class="col2">
           <form id="form_1" action="#" method="post">
             <div class="pad1">
-              <h3>Find Your Property</h3>
-              <div class="row"> Search :<br>
-                <input type="text" class="input">
-              </div>
-              <div class="row_select"> State : <br>
-                <select>
-                  <option>&nbsp;</option>
-                  <option>Melaka</option>
-                  <option>Johor</option>
-                  <option>Negeri Sembilan</option>
-                  <option>Selangor</option>
-                </select>
-              </div>
-              <div class="row_select"> Cities : <br>
-                <select>
-                  <option>&nbsp;</option>
-                  <option>...</option>
-                  <option>...</option>
-                  <option>...</option>
-                  <option>...</option>
-                </select>
-              </div>
-              <div class="row_select"> Residential Type : <br>
-                <select>
-                  <option>&nbsp;</option>
-                  <option>Apartment</option>
-                  <option>Flat</option>
-                  <option>1-Sty Terrace</option>
-                  <option>2-Sty Terrace</option>
-                  <option>Town House</option>
-                </select>
-              </div>
+              <h3>Sell Your Property</h3>
               <div class="row_select">
-                <div class="cols"> Min Price : <br>
+                <div class="cols"> State : <br>
                   <select>
                     <option>&nbsp;</option>
-                    <option>200</option>
-                    <option>400</option>
-                    <option>600</option>
-                    <option>800</option>
-                    <option>1000</option>
-                    <option>1200</option>
+                    <option value="Melaka">Melaka</option>
+                    <option value="Johor">Johor</option>
+                    <option value="Negeri Sembilan">Negeri Sembilan</option>
+                    <option value="Selangor">Selangor</option>
                   </select>
                 </div>
-                <div class="cols pad_left1"> Max Price : <br>
+                <div class="cols pad_left1"> Cities : <br>
                   <select>
                     <option>&nbsp;</option>
-                    <option>200</option>
-                    <option>400</option>
-                    <option>600</option>
-                    <option>800</option>
-                    <option>1000</option>
-                    <option>1200</option>
+                    <option value="">...</option>
+                    <option value="">...</option>
+                    <option value="">...</option>
+                    <option value="">...</option>
                   </select>
                 </div>
+              </div>
+              
+              <div class="row_select">
+                <div class="cols"> Residential Type <br>
+                  <select>
+                    <option>&nbsp;</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Flat">Flat</option>
+                    <option value="1-Sty">1-Sty Terrace</option>
+                    <option value="2-Sty">2-Sty Terrace</option>
+                    <option value="Town">Town House</option>
+                  </select>
+                </div>
+                <div class="cols pad_left1"> Furnishing : <br>
+                  <select>
+                    <option>&nbsp;</option>
+                    <option value="fully">Fully Furnished</option>
+                    <option value="partially">Partially Furnished</option>
+                    <option value="not">Not Furnished</option>
+                  </select>
+                </div>
+
+              <div class="row_select"> Year of Residential : <br>
+                  <input type="number" name="yearOfHouse">
+              </div>
+              <div class="row_select"> Price (RM) : <br>  
+                <input type="number" name="price_house">
+              </div>
+              <div class="row_select"> Residential Description : <br>  
+                <textarea rows="4" cols="30" name="residential_description"></textarea>
               </div>
               <div class="row_select">
                 <div class="cols"> Bedroom(s):<br>
                   <select>
                     <option>&nbsp;</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
                   </select>
                 </div>
-                <div class="cols pad_left1"> <a href="#" class="button">Search</a> </div>
+                <div class="cols pad_left1"> <a href="#" class="button">Upload</a> </div>
               </div> <br>
             </div>
           </form>
