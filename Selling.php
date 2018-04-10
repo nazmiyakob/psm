@@ -78,7 +78,7 @@
               </div>
               
               <div class="row_select">
-                <div class="cols"> Residential Type <br>
+                <div class="cols"> Residential Typewww <br>
                   <select>
                     <option>&nbsp;</option>
                     <option value="Apartment">Apartment</option>
