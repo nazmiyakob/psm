@@ -53,12 +53,12 @@
           <div id="slider"> <img src="images/1sty.jpg" height="376" width="683" alt="" title="<strong>One storey house <a href=''>Read more</a></span>"> <img src="images/2sty.jpg" height="376" width="683" alt="" title="<strong>Two storey house <a href=''>Read more</a></span>"> <img src="images/appartment.jpg" height="376" width="683" alt="" title="<strong>Appartment <a href=''>Read more</a></span>"> </div>
         </article>
         <article class="col2">
-          <form id="form_1" action="#" method="post">
+          <form id="form_1" action="" method="post">
             <div class="pad1">
               <h3>Sell Your Property</h3>
               <div class="row_select">
                 <div class="cols"> State : <br>
-                  <select>
+                  <select name="res_state">
                     <option>&nbsp;</option>
                     <option value="Melaka">Melaka</option>
                     <option value="Johor">Johor</option>
@@ -67,19 +67,19 @@
                   </select>
                 </div>
                 <div class="cols pad_left1"> Cities : <br>
-                  <select>
+                  <select name="res_cities">
                     <option>&nbsp;</option>
-                    <option value="">...</option>
-                    <option value="">...</option>
-                    <option value="">...</option>
-                    <option value="">...</option>
+                    <option value="Ayer Keroh">Ayer Keroh</option>
+                    <option value="Durian Tunggal">Durian Tunggal</option>
+                    <option value="Batu Berendam">Batu Berendam</option>
+                    <option value="Jasin">Jasin</option>
                   </select>
                 </div>
               </div>
               
               <div class="row_select">
                 <div class="cols"> Residential Type <br>
-                  <select>
+                  <select name="residential_type">
                     <option>&nbsp;</option>
                     <option value="Apartment">Apartment</option>
                     <option value="Flat">Flat</option>
@@ -89,7 +89,7 @@
                   </select>
                 </div>
                 <div class="cols pad_left1"> Furnishing : <br>
-                  <select>
+                  <select name="furnishing">
                     <option>&nbsp;</option>
                     <option value="fully">Fully Furnished</option>
                     <option value="partially">Partially Furnished</option>
@@ -98,26 +98,27 @@
                 </div>
 
               <div class="row_select"> Year of Residential : <br>
-                  <input type="number" name="yearOfHouse">
+                  <input type="number" name="residential_year">
               </div>
               <div class="row_select"> Price (RM) : <br>  
-                <input type="number" name="price_house">
+                <input type="number" name="residential_price">
               </div>
               <div class="row_select"> Residential Description : <br>  
                 <textarea rows="4" cols="30" name="residential_description"></textarea>
               </div>
               <div class="row_select">
                 <div class="cols"> Bedroom(s):<br>
-                  <select>
+                  <!-- <select>
                     <option>&nbsp;</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
+                    <option name="bedroom_count" value="1">1</option>
+                    <option name="bedroom_count" value="2">2</option>
+                    <option name="bedroom_count" value="3">3</option>
+                    <option name="bedroom_count" value="4">4</option>
+                    <option name="bedroom_count" value="5">5</option>
+                  </select> -->
                 </div>
-                <div class="cols pad_left1"> <a href="#" class="button">Upload</a> </div>
+                <div class="cols pad_left1"> <input type="submit" name="btn_submit" value="Upload" class="button">
+                </div>
               </div> <br>
             </div>
           </form>
@@ -162,5 +163,48 @@ $(window).load(function () {
     Cufon.refresh();
 });
 </script>
+
+
 </body>
 </html>
+<?php
+if(isset($_POST['btn_submit']))
+{
+
+  $username = "root";
+  $password = "";
+  $hostname = "localhost";
+
+
+  $con = mysql_connect($hostname, $username, $password) or die("Could not connect to database");
+
+  mysql_select_db("e_rented_house", $con); 
+
+    $query=mysql_query("SELECT * FROM residential");
+    $numrows=mysql_num_rows($query);
+    if($numrows==0)
+    {
+      $sql = "INSERT INTO residential (residential_id, res_state, res_cities, residential_type, furnishing, residential_year, residential_price, residential_description) VALUES('$residential_id', '$_POST[res_state]', '$_POST[res_cities]', '$_POST[residential_type]', '$_POST[furnishing]', '$_POST[residential_year]', '$_POST[residential_price]', '$_POST[residential_description]')";
+      
+      $result=mysql_query($sql);
+      
+      if($result)
+      {
+        echo '<script language = "JavaScript">alert("YOUR DATA HAS BEEN SAVED")</script>';
+        print '<meta http-equiv="refresh" content="0;URL=selling.php">';
+      }
+      else
+      {
+        echo '<script language = "JavaScript">alert("DATA NOT SAVED")</script>';
+        print '<meta http-equiv="refresh" content="0;URL=selling.php">';
+      }
+    }
+    else
+    {
+      echo '<script language = "JavaScript">alert("NO QUERY")</script>';
+      print '<meta http-equiv="refresh" content="0;URL=selling.php">';
+    }
+    
+  
+}
+?>
