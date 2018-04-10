@@ -412,7 +412,7 @@ footer a:hover {
 	float:left
 }
 #ContactForm .input {
-	width:254px;
+	width:100px;
 	background:#fff;
 	padding:3px 10px;
 	color:#191919;
@@ -446,7 +446,7 @@ footer a:hover {
 	color:#191919;
 	float:left;
 	padding:3px 10px;
-	height:145px;
+	height:30px;
 	width:191px !important
 }
 #form_1 .row {
