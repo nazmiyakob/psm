@@ -450,12 +450,12 @@ footer a:hover {
 	width:191px !important
 }
 #form_1 .row {
-	min-height:46px;
+	min-height:30px;
 	width:100%;
 	overflow:hidden
 }
 #form_1 .row_select {
-	min-height:46px;
+	min-height:30px;
 	width:100%
 }
 #form_1 .jqTransformSelectWrapper {
