@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2018 at 07:27 AM
+-- Generation Time: Apr 10, 2018 at 09:42 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -48397,13 +48397,14 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 
 CREATE TABLE `residential` (
   `residential_id` int(5) NOT NULL,
-  `ic_no` int(12) NOT NULL,
   `residential_type` varchar(20) NOT NULL,
   `residential_price` int(5) NOT NULL,
   `residential_img` longblob NOT NULL,
-  `residential_decription` varchar(100) NOT NULL,
+  `residential_description` varchar(100) NOT NULL,
   `residential_year` int(4) NOT NULL,
-  `furnishing` varchar(20) NOT NULL
+  `furnishing` varchar(50) NOT NULL,
+  `res_state` varchar(50) NOT NULL,
+  `res_cities` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -52553,12 +52554,10 @@ INSERT INTO `states` (`id`, `name`, `country_id`) VALUES
 
 CREATE TABLE `user` (
   `ic_no` int(12) NOT NULL,
-  `fullname` text NOT NULL,
+  `fullname` varchar(100) NOT NULL,
   `password` varchar(20) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `phone_number` int(12) NOT NULL,
-  `address` varchar(50) NOT NULL,
-  `postcode` int(5) NOT NULL
+  `phone_number` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -52582,8 +52581,7 @@ ALTER TABLE `cities`
 -- Indexes for table `residential`
 --
 ALTER TABLE `residential`
-  ADD PRIMARY KEY (`residential_id`),
-  ADD UNIQUE KEY `ic_no` (`ic_no`);
+  ADD PRIMARY KEY (`residential_id`);
 
 --
 -- Indexes for table `states`
@@ -52612,6 +52610,12 @@ ALTER TABLE `bedroom`
 --
 ALTER TABLE `cities`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48315;
+
+--
+-- AUTO_INCREMENT for table `residential`
+--
+ALTER TABLE `residential`
+  MODIFY `residential_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `states`

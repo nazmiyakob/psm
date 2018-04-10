@@ -100,12 +100,15 @@
               <div class="row_select"> Year of Residential : <br>
                   <input type="number" name="residential_year">
               </div>
+
               <div class="row_select"> Price (RM) : <br>  
                 <input type="number" name="residential_price">
               </div>
+
               <div class="row_select"> Residential Description : <br>  
                 <textarea rows="4" cols="30" name="residential_description"></textarea>
               </div>
+              
               <div class="row_select">
                 <div class="cols"> Bedroom(s):<br>
                   <!-- <select>
@@ -117,8 +120,11 @@
                     <option name="bedroom_count" value="5">5</option>
                   </select> -->
                 </div>
-                <div class="cols pad_left1"> <input type="submit" name="btn_submit" value="Upload" class="button">
+
+                <div class="cols pad_left1">
+                  <input type="submit" name="btn_submit" value="Upload" class="button">
                 </div>
+
               </div> <br>
             </div>
           </form>

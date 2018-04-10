@@ -57,7 +57,7 @@
                 <input type="text" class="input" name="ic_no">
               </div>
               <div class="row"> Full Name :<br>
-                <input type="text" class="input" name="full_name">
+                <input type="text" class="input" name="fullname">
               </div>
               <div class="row"> Password :<br>
                 <input type="password" class="input" name="password">
@@ -70,7 +70,9 @@
               </div>
 
               <div class="row_select">
-                <div class="cols pad_left1"> <a href="#" class="button">Register</a> </div>
+                <div class="cols pad_left1">
+                <input type="submit" name="btn_register" value="Register" class="button">
+              </div>
               </div> <br>
             </div>
           </form>
@@ -133,3 +135,44 @@ $(window).load(function () {
 </script>
 </body>
 </html>
+<?php
+if(isset($_POST['btn_register']))
+{
+
+  $username = "root";
+  $password = "";
+  $hostname = "localhost";
+
+
+  $con = mysql_connect($hostname, $username, $password) or die("Could not connect to database");
+
+  mysql_select_db("e_rented_house", $con); 
+
+    $query=mysql_query("SELECT * FROM user");
+    $numrows=mysql_num_rows($query);
+    if($numrows==0)
+    {
+      $sql = "INSERT INTO user (ic_no, fullname, password, email, phone_number) VALUES('$_POST[ic_no]', '$_POST[fullname]', '$_POST[password]', '$_POST[email]', '$_POST[phone_number]')";
+      
+      $result=mysql_query($sql);
+      
+      if($result)
+      {
+        echo '<script language = "JavaScript">alert("YOUR DATA HAS BEEN SAVED")</script>';
+        print '<meta http-equiv="refresh" content="0;URL=account.php">';
+      }
+      else
+      {
+        echo '<script language = "JavaScript">alert("DATA NOT SAVED")</script>';
+        print '<meta http-equiv="refresh" content="0;URL=account.php">';
+      }
+    }
+    else
+    {
+      echo '<script language = "JavaScript">alert("NO QUERY")</script>';
+      print '<meta http-equiv="refresh" content="0;URL=account.php">';
+    }
+    
+  
+}
+?>
