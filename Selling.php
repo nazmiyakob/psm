@@ -188,9 +188,8 @@ if(isset($_POST['btn_submit']))
 
     $query=mysql_query("SELECT * FROM residential");
     $numrows=mysql_num_rows($query);
-    if($numrows==0)
-    {
-      $sql = "INSERT INTO residential (residential_id, res_state, res_cities, residential_type, furnishing, residential_year, residential_price, residential_description) VALUES('$residential_id', '$_POST[res_state]', '$_POST[res_cities]', '$_POST[residential_type]', '$_POST[furnishing]', '$_POST[residential_year]', '$_POST[residential_price]', '$_POST[residential_description]')";
+
+    $sql = "INSERT INTO residential (residential_id, res_state, res_cities, residential_type, furnishing, residential_year, residential_price, residential_description) VALUES('$residential_id', '$_POST[res_state]', '$_POST[res_cities]', '$_POST[residential_type]', '$_POST[furnishing]', '$_POST[residential_year]', '$_POST[residential_price]', '$_POST[residential_description]')";
       
       $result=mysql_query($sql);
       
@@ -203,14 +202,6 @@ if(isset($_POST['btn_submit']))
       {
         echo '<script language = "JavaScript">alert("DATA NOT SAVED")</script>';
         print '<meta http-equiv="refresh" content="0;URL=selling.php">';
-      }
-    }
-    else
-    {
-      echo '<script language = "JavaScript">alert("NO QUERY")</script>';
-      print '<meta http-equiv="refresh" content="0;URL=selling.php">';
-    }
-    
-  
+      }  
 }
 ?>
