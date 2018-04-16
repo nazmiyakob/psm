@@ -44,6 +44,7 @@
     <!-- / header -->
   </div>
 </div>
+
 <!-- content -->
 <div class="body2">
   <div class="main">
@@ -83,17 +84,17 @@
                     <option>&nbsp;</option>
                     <option value="Apartment">Apartment</option>
                     <option value="Flat">Flat</option>
-                    <option value="1-Sty">1-Sty Terrace</option>
-                    <option value="2-Sty">2-Sty Terrace</option>
+                    <option value="1-Sty Terrace">1-Sty Terrace</option>
+                    <option value="2-Sty Terrace">2-Sty Terrace</option>
                     <option value="Town">Town House</option>
                   </select>
                 </div>
                 <div class="cols pad_left1"> Furnishing : <br>
                   <select name="furnishing">
                     <option>&nbsp;</option>
-                    <option value="fully">Fully Furnished</option>
-                    <option value="partially">Partially Furnished</option>
-                    <option value="not">Not Furnished</option>
+                    <option value="Fully Furnished">Fully Furnished</option>
+                    <option value="Partially Furnished">Partially Furnished</option>
+                    <option value="Not Furnished">Not Furnished</option>
                   </select>
                 </div>
 
@@ -133,6 +134,55 @@
     </section>
   </div>
 </div>
+
+<div class="body3">
+  <div class="main">
+    <h2>Remodeling Rooms</h2>
+
+    <div class="wrapper pad_bot3">
+      <?php 
+        mysql_connect("localhost","root","");
+        mysql_select_db("e_rented_house");
+        
+        $query1=mysql_query("SELECT * FROM residential");
+
+        echo "<p><br>
+        <table border='11' text-align='center' width='100%'>
+        <tr bgcolor='lightyellow' class='color2'>
+          <th><center> Residential Type </center></th>
+          <th><center> Residential Price </center></th>
+          <th><center> Residential Image </center></th>
+          <th><center> Residential Description </center></th>
+          <th><center> Residential Year </center></th>
+          <th><center> State </center></th>
+          <th><center> Cities </center></th>
+        </tr>
+        </div></div>";
+
+        while($query2=mysql_fetch_array($query1))
+        {
+          echo "<form action='edit_event2.php' method='post'>";
+          echo "";
+          echo"<tr height='30px' class='color2'>";
+          echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
+          echo "<td align='center' valign='top'>&nbsp;RM " . $query2['residential_price'] . "</td>";
+          echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_img'] . "</td>";
+          echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_year'] . "</td>";
+          echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
+          echo "<td align='center' valign='top'>&nbsp;" . $query2['res_state'] . "</td>";
+          echo "<input type='hidden' name='event_id' value=" . $query2['residential_id'] . ">";
+          echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . "</td>";
+          echo "</td>";
+          echo "</tr>";
+        }
+        
+        echo "</table>";
+
+      ?>                
+    </div>
+  </div>
+</div>
+
 <script>Cufon.now();</script>
 <script>
 $(window).load(function () {
