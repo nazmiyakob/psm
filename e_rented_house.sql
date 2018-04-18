@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2018 at 09:42 AM
+-- Generation Time: Apr 18, 2018 at 09:35 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -48407,6 +48407,15 @@ CREATE TABLE `residential` (
   `res_cities` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `residential`
+--
+
+INSERT INTO `residential` (`residential_id`, `residential_type`, `residential_price`, `residential_img`, `residential_description`, `residential_year`, `furnishing`, `res_state`, `res_cities`) VALUES
+(1, 'Apartment', 20000, '', 'test', 2003, 'Partially Furnishing', 'Melaka', 'Durian Tunggal'),
+(2, '2-Sty Terrace', 2000, '', 'test2', 2003, 'Not Furnishing', 'Negeri Sembilan', 'Batu Berendam'),
+(3, '1-Sty Terrace', 23000, '', 'aaa', 2000, 'Partially Furnishing', 'Johor', 'Batu Berendam');
+
 -- --------------------------------------------------------
 
 --
@@ -52615,7 +52624,7 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `residential`
 --
 ALTER TABLE `residential`
-  MODIFY `residential_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `residential_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `states`
