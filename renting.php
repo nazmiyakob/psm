@@ -53,11 +53,11 @@
           <div id="slider"> <img src="images/1sty.jpg" height="376" width="683" alt="" title="<strong>One storey house <a href=''>Read more</a></span>"> <img src="images/2sty.jpg" height="376" width="683" alt="" title="<strong>Two storey house <a href=''>Read more</a></span>"> <img src="images/appartment.jpg" height="376" width="683" alt="" title="<strong>Appartment <a href=''>Read more</a></span>"> </div>
         </article>
         <article class="col2">
-          <form id="form_1" action="#" method="post">
+          <form id="form_1" action="search.php" method="post">
             <div class="pad1">
               <h3>Find Your Property</h3>
               <div class="row"> Search :<br>
-                <input type="text" class="input">
+                <input type="text" class="input" name="seacrhdata">
               </div>
               <div class="row_select"> State : <br>
                 <select name="res_state">
@@ -117,7 +117,7 @@
                     <option>5</option>
                   </select>
                 </div>
-                <div class="cols pad_left1"> <a href="#" class="button">Search</a> </div>
+                <div class="cols pad_left1"> <input class="button" type="submit" name="search" value="Search"/></td> </div>
               </div> <br>
             </div>
           </form>

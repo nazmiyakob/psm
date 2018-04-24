@@ -62,8 +62,8 @@
               <h3>Sell Your Property</h3>
               <div class="row_select">
                 <div class="cols"> State : <br>
-                  <select name="res_state">
-                    <option>&nbsp;</option>
+                  <select name="res_state" required>
+                    <option value="">&nbsp;</option>
                     <option value="Melaka">Melaka</option>
                     <option value="Johor">Johor</option>
                     <option value="Negeri Sembilan">Negeri Sembilan</option>
@@ -71,8 +71,8 @@
                   </select>
                 </div>
                 <div class="cols pad_left1"> Cities : <br>
-                  <select name="res_cities">
-                    <option>&nbsp;</option>
+                  <select name="res_cities" required>
+                    <option value="">&nbsp;</option>
                     <option value="Ayer Keroh">Ayer Keroh</option>
                     <option value="Durian Tunggal">Durian Tunggal</option>
                     <option value="Batu Berendam">Batu Berendam</option>
@@ -83,8 +83,8 @@
               
               <div class="row_select">
                 <div class="cols"> Residential Type <br>
-                  <select name="residential_type">
-                    <option>&nbsp;</option>
+                  <select name="residential_type" required>
+                    <option value="">&nbsp;</option>
                     <option value="Apartment">Apartment</option>
                     <option value="Flat">Flat</option>
                     <option value="1-Sty Terrace">1-Sty Terrace</option>
@@ -93,8 +93,8 @@
                   </select>
                 </div>
                 <div class="cols pad_left1"> Furnishing : <br>
-                  <select name="furnishing">
-                    <option>&nbsp;</option>
+                  <select name="furnishing" required>
+                    <option value="">&nbsp;</option>
                     <option value="Fully Furnished">Fully Furnished</option>
                     <option value="Partially Furnished">Partially Furnished</option>
                     <option value="Not Furnished">Not Furnished</option>
@@ -102,15 +102,15 @@
                 </div>
 
               <div class="row_select"> Year of Residential : <br>
-                  <input type="number" name="residential_year">
+                  <input type="number" name="residential_year" required>
               </div>
 
               <div class="row_select"> Price (RM) : <br>  
-                <input type="number" name="residential_price">
+                <input type="number" name="residential_price" required>
               </div>
 
               <div class="row_select"> Residential Description : <br>  
-                <textarea rows="4" cols="30" name="residential_description"></textarea>
+                <textarea rows="4" cols="30" name="residential_description" required></textarea>
               </div>
               
               <div class="row_select">
