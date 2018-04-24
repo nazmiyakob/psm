@@ -50,16 +50,10 @@
           <form id="form_1" action="#" method="post">
             <div class="pad1">
               <h3>Apporvement</h3>
-              <?php 
-
-                $username = "root";
-                $password = "";
-                $hostname = "localhost";
-
-
-                $con = mysql_connect($hostname, $username, $password) or die("Could not connect to database");
-
-                mysql_select_db("e_rented_house", $con); 
+              <?php
+                mysql_connect("localhost","root","");
+                mysql_select_db("e_rented_house");
+                
                 $query1=mysql_query("SELECT * FROM user");
 
                 echo " <h1><center> LIST USER </center></h1>

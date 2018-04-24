@@ -35,40 +35,58 @@
       <nav>
         <ul id="menu">
           <li><a href="index.php">Home</a></li>
-          <li id="menu_active"><a href="renting.php">Rent</a></li>
-          <li><a href="selling.php">Sell</a></li>
-          <li class="end"><a href="account.php">Account</a></li>
+          <li><a href="renting.php">Rent</a></li>
+          <li id="menu_active"><a href="selling.php">Sell</a></li>
+          <li class="menu_active"><a href="account.php">Account</a></li>
+          <li id="end">
+            
+          </li>
         </ul>
       </nav>
     </header>
     <!-- / header -->
   </div>
 </div>
+
 <!-- content -->
 <div class="body2">
   <div class="main">
     <section id="content">
       <div class="wrapper">
+        <form action="" method="post">
+          <table width="606" height="46" border="0">
+            <tr>
+              <td width="95">Search By :</td>
+              <td width="107"><select name="searchtype" required="required" >
+                <option value="">Select Options</option>
+                <option value="type">Residential Type</option>
+                <option value="price">Residential Price</option>
+                <option value="state">Residential State</option>
+              </select></td>
+
+              <td width="398"><input type="text" name="search_data" size="40"  required="required" /></td>
+               <td width="115"><input  class="button" type="submit" name="search" value="Search"/></td>
+            </tr>
+          </table>
+        </form>
         <article class="col1">
           <div id="slider"> <img src="images/1sty.jpg" height="376" width="683" alt="" title="<strong>One storey house <a href=''>Read more</a></span>"> <img src="images/2sty.jpg" height="376" width="683" alt="" title="<strong>Two storey house <a href=''>Read more</a></span>"> <img src="images/appartment.jpg" height="376" width="683" alt="" title="<strong>Appartment <a href=''>Read more</a></span>"> </div>
         </article>
         <article class="col2">
-          <form id="form_1" action="#" method="post">
+          <form id="form_1" action="" method="post">
             <div class="pad1">
-              <h3>Find Your Property</h3>
-              <div class="row"> Search :<br>
-                <input type="text" class="input">
-              </div>
-              <div class="row_select"> State : <br>
-                <select name="res_state">
+              <h3>Sell Your Property</h3>
+              <div class="row_select">
+                <div class="cols"> State : <br>
+                  <select name="res_state">
                     <option>&nbsp;</option>
                     <option value="Melaka">Melaka</option>
                     <option value="Johor">Johor</option>
                     <option value="Negeri Sembilan">Negeri Sembilan</option>
                     <option value="Selangor">Selangor</option>
                   </select>
-              </div>
-              <div class="row_select"> Cities : <br>
+                </div>
+                <div class="cols pad_left1"> Cities : <br>
                   <select name="res_cities">
                     <option>&nbsp;</option>
                     <option value="Ayer Keroh">Ayer Keroh</option>
@@ -76,9 +94,12 @@
                     <option value="Batu Berendam">Batu Berendam</option>
                     <option value="Jasin">Jasin</option>
                   </select>
+                </div>
               </div>
-              <div class="row_select"> Residential Type : <br>
-               <select name="residential_type">
+              
+              <div class="row_select">
+                <div class="cols"> Residential Type <br>
+                  <select name="residential_type">
                     <option>&nbsp;</option>
                     <option value="Apartment">Apartment</option>
                     <option value="Flat">Flat</option>
@@ -86,8 +107,8 @@
                     <option value="2-Sty Terrace">2-Sty Terrace</option>
                     <option value="Town">Town House</option>
                   </select>
-              </div>
-              <div class="row_select"> Furnishing : <br>
+                </div>
+                <div class="cols pad_left1"> Furnishing : <br>
                   <select name="furnishing">
                     <option>&nbsp;</option>
                     <option value="Fully Furnished">Fully Furnished</option>
@@ -95,29 +116,35 @@
                     <option value="Not Furnished">Not Furnished</option>
                   </select>
                 </div>
-              <div class="row_select"> Price (below than): <br>
-                  <select>
-                    <option>&nbsp;</option>
-                    <option value="200">RM 200</option>
-                    <option value="200">RM 400</option>
-                    <option value="200">RM 600</option>
-                    <option value="200">RM 800</option>
-                    <option value="200">RM 1000</option>
-                    <option value="200">RM 1200</option>
-                  </select>
+
+              <div class="row_select"> Year of Residential : <br>
+                  <input type="number" name="residential_year">
               </div>
+
+              <div class="row_select"> Price (RM) : <br>  
+                <input type="number" name="residential_price">
+              </div>
+
+              <div class="row_select"> Residential Description : <br>  
+                <textarea rows="4" cols="30" name="residential_description"></textarea>
+              </div>
+              
               <div class="row_select">
                 <div class="cols"> Bedroom(s):<br>
-                  <select>
+                  <!-- <select>
                     <option>&nbsp;</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
+                    <option name="bedroom_count" value="1">1</option>
+                    <option name="bedroom_count" value="2">2</option>
+                    <option name="bedroom_count" value="3">3</option>
+                    <option name="bedroom_count" value="4">4</option>
+                    <option name="bedroom_count" value="5">5</option>
+                  </select> -->
                 </div>
-                <div class="cols pad_left1"> <a href="#" class="button">Search</a> </div>
+
+                <div class="cols pad_left1">
+                  <input type="submit" name="btn_submit" value="Upload" class="button">
+                </div>
+
               </div> <br>
             </div>
           </form>
@@ -141,12 +168,12 @@
         echo "<p><br>
         <table border='10' text-align='center' width='100%'>
         <tr class='color2'>
-          <th><center><h3> Residential Type </center></th>
-          <th><center><h3> Residential Price </center></th>
-          <th><center><h3> Residential Year </center></th>
-          <th><center><h3> Residential Furnishing </center></th>
-          <th><center><h3> State </center></th>
-          <th><center><h3> Cities </center></th>
+          <th><center> Residential Type </center></th>
+          <th><center> Residential Price </center></th>
+          <th><center> Residential Year </center></th>
+          <th><center> Residential Furnishing </center></th>
+          <th><center> State </center></th>
+          <th><center> Cities </center></th>
         </tr>
         </div></div>";
 
@@ -167,6 +194,7 @@
         }
         
         echo "</table>";
+
       ?>                
     </div>
   </div>
@@ -208,5 +236,39 @@ $(window).load(function () {
     Cufon.refresh();
 });
 </script>
+
+
 </body>
 </html>
+<?php
+if(isset($_POST['btn_submit']))
+{
+
+  $username = "root";
+  $password = "";
+  $hostname = "localhost";
+
+
+  $con = mysql_connect($hostname, $username, $password) or die("Could not connect to database");
+
+  mysql_select_db("e_rented_house", $con); 
+
+    $query=mysql_query("SELECT * FROM residential");
+    $numrows=mysql_num_rows($query);
+
+    $sql = "INSERT INTO residential (residential_id, res_state, res_cities, residential_type, furnishing, residential_year, residential_price, residential_description) VALUES('$residential_id', '$_POST[res_state]', '$_POST[res_cities]', '$_POST[residential_type]', '$_POST[furnishing]', '$_POST[residential_year]', '$_POST[residential_price]', '$_POST[residential_description]')";
+      
+      $result=mysql_query($sql);
+      
+      if($result)
+      {
+        echo '<script language = "JavaScript">alert("YOUR DATA HAS BEEN SAVED")</script>';
+        print '<meta http-equiv="refresh" content="0;URL=selling.php">';
+      }
+      else
+      {
+        echo '<script language = "JavaScript">alert("DATA NOT SAVED")</script>';
+        print '<meta http-equiv="refresh" content="0;URL=selling.php">';
+      }  
+}
+?>

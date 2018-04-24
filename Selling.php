@@ -53,22 +53,6 @@
   <div class="main">
     <section id="content">
       <div class="wrapper">
-      <form action="" method="post">
-              <table width="606" height="46" border="0">
-                <tr>
-                  <td width="95">Search By :</td>
-                  <td width="107"><select name="searchtype" required="required" >
-                    <option value="">Select Options</option>
-                    <option value="type">Residential Type</option>
-                    <option value="price">Residential Price</option>
-                    <option value="state">Residential State</option>
-                  </select></td>
-
-                  <td width="398"><input type="text" name="search_data" size="40"  required="required" /></td>
-                   <td width="115"><input class="login" type="submit" name="search" value="Search"/></td>
-                </tr>
-              </table>
-            </form>
         <article class="col1">
           <div id="slider"> <img src="images/1sty.jpg" height="376" width="683" alt="" title="<strong>One storey house <a href=''>Read more</a></span>"> <img src="images/2sty.jpg" height="376" width="683" alt="" title="<strong>Two storey house <a href=''>Read more</a></span>"> <img src="images/appartment.jpg" height="376" width="683" alt="" title="<strong>Appartment <a href=''>Read more</a></span>"> </div>
         </article>
