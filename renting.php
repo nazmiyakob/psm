@@ -136,7 +136,7 @@
         mysql_connect("localhost","root","");
         mysql_select_db("e_rented_house");
         
-        $query1=mysql_query("SELECT * FROM residential");
+        $query1=mysql_query("SELECT * FROM residential WHERE status='ACCEPT'");
 
         echo "<p><br>
         <table border='10' text-align='center' width='100%'>

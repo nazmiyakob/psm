@@ -78,7 +78,7 @@
           </form>
         </article>
         <article class="col2">
-          <form id="form_1" action="#" method="post">
+          <form id="form_1" action="authenticate.php" method="post">
             <div class="pad1">
               <h3>Log In</h3>
               <div class="row"> IC Number :<br>
@@ -88,7 +88,7 @@
                 <input type="password" class="input" name="password">
               
               <div class="row_select">
-                <div class="cols pad_left1"> <a href="#" class="button">Log In</a> </div>
+                <div class="cols pad_left1"><input id="submit" class="button" type="submit" name="submit" value="Login"> </div>
               </div> <br>
             </div>
           </form>

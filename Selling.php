@@ -37,10 +37,7 @@
           <li><a href="index.php">Home</a></li>
           <li><a href="renting.php">Rent</a></li>
           <li id="menu_active"><a href="selling.php">Sell</a></li>
-          <li class="menu_active"><a href="account.php">Account</a></li>
-          <li id="end">
-            
-          </li>
+          <li class="end"><a href="account.php">Account</a></li>
         </ul>
       </nav>
     </header>
@@ -147,7 +144,7 @@
         mysql_connect("localhost","root","");
         mysql_select_db("e_rented_house");
         
-        $query1=mysql_query("SELECT * FROM residential");
+        $query1=mysql_query("SELECT * FROM residential WHERE status='ACCEPT'");
 
         echo "<p><br>
         <table border='10' text-align='center' width='100%'>

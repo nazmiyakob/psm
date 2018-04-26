@@ -49,20 +49,20 @@
         <article>
           <form id="form_1" action="#" method="post">
             <div class="pad1">
-              <h3>Apporvement</h3>
+              <h3>Approvement</h3>
               <?php
                 mysql_connect("localhost","root","");
                 mysql_select_db("e_rented_house");
                 
                 $query1=mysql_query("SELECT * FROM user");
 
-                echo " <h1><center> LIST USER </center></h1>
+                echo " <h4><center> LIST USER </center></h4>
                 <p><br>
                 <table border='1' text-align='center' width='100%'> 
                 <tr bgcolor='lightyellow'>
                   <th><center> FULL NAME </center></th>
                   <th><center> IC NUMBER </center></th>
-                  <th><center> USERNAME </center></th>
+                  <th><center> EMAIL </center></th>
                   <th><center> ACTION </center></th>
                 </tr>
                 </div></div>";
@@ -72,9 +72,9 @@
                   echo "";
                   echo"<tr height='30px'>";
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['fullname'] . "</td>";
-                  echo "<td align='center' valign='top'>&nbsp;" . $query2['ic_number'] . "</td>";
-                  echo "<td align='center' valign='top'>&nbsp;" . $query2['username'] . "</td>";
-                  echo "<td align='center'>&nbsp;" . "<form action='' method='POST'><button type='submit' span='2' formaction='user_delete.php?username=".$query2['username']."'>DELETE</button></form>";
+                  echo "<td align='center' valign='top'>&nbsp;" . $query2['ic_no'] . "</td>";
+                  echo "<td align='center' valign='top'>&nbsp;" . $query2['email'] . "</td>";
+                  echo "<td align='center'>&nbsp;" . "<form action='' method='POST'><button type='submit' span='2' formaction='user_delete.php?fullname=".$query2['fullname']."'>DELETE</button></form>";
                   echo "</td>";
                   echo "</tr>";
                 }
