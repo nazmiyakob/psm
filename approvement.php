@@ -50,38 +50,41 @@
         <article>
           <form id="form_1" action="#" method="post">
             <div class="pad1">
-              <h3>Approvement</h3>
-              <?php
+              <?php 
                 mysql_connect("localhost","root","");
                 mysql_select_db("e_rented_house");
                 
-                $query1=mysql_query("SELECT * FROM user");
+                $query1=mysql_query("SELECT * FROM residential");
 
-                echo " <h4><center> LIST USER </center></h4>
-                <p><br>
-                <table border='1' text-align='center' width='100%'> 
-                <tr bgcolor='lightyellow'>
-                  <th><center> FULL NAME </center></th>
-                  <th><center> IC NUMBER </center></th>
-                  <th><center> EMAIL </center></th>
-                  <th><center> ACTION </center></th>
+                echo "<p><br>
+                <table border='10' text-align='center' width='100%'>
+                <tr class='color2'>
+                  <th><center><h3> Residential Type </center></th>
+                  <th><center><h3> Residential Price </center></th>
+                  <th><center><h3> Residential Year </center></th>
+                  <th><center><h3> Residential Furnishing </center></th>
+                  <th><center><h3> State </center></th>
+                  <th><center><h3> Cities </center></th>
                 </tr>
                 </div></div>";
 
                 while($query2=mysql_fetch_array($query1))
                 {
+                  echo "<form action='edit_event2.php' method='post'>";
                   echo "";
-                  echo"<tr height='30px'>";
-                  echo "<td align='center' valign='top'>&nbsp;" . $query2['fullname'] . "</td>";
-                  echo "<td align='center' valign='top'>&nbsp;" . $query2['ic_no'] . "</td>";
-                  echo "<td align='center' valign='top'>&nbsp;" . $query2['email'] . "</td>";
-                  echo "<td align='center'>&nbsp;" . "<form action='' method='POST'><button type='submit' span='2' formaction='user_delete.php?fullname=".$query2['fullname']."'>DELETE</button></form>";
+                  echo"<tr height='30px' class='color2'>";
+                  echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
+                  echo "<td align='center' valign='top'>&nbsp;RM " . $query2['residential_price'] . "</td>";
+                  echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_year'] . "</td>";
+                  echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
+                  echo "<td align='center' valign='top'>&nbsp;" . $query2['res_state'] . "</td>";
+                  echo "<input type='hidden' name='event_id' value=" . $query2['residential_id'] . ">";
+                  echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . "</td>";
                   echo "</td>";
                   echo "</tr>";
                 }
-
-              echo "</table>";
-
+                
+                echo "</table>";
               ?>
             </div>
           </form>
