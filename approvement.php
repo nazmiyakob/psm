@@ -58,11 +58,11 @@
 
                 echo "<p><br>
                 <table border='10' text-align='center' width='100%'>
-                <tr class='color2'>
+                <tr>
                   <th><center><h3> Residential Type </center></th>
                   <th><center><h3> Residential Price </center></th>
                   <th><center><h3> Residential Year </center></th>
-                  <th><center><h3> Residential Furnishing </center></th>
+                  <th><center><h3> Furnishing </center></th>
                   <th><center><h3> State </center></th>
                   <th><center><h3> Cities </center></th>
                 </tr>
