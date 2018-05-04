@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2018 at 06:37 PM
+-- Generation Time: May 04, 2018 at 09:47 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -48413,9 +48413,9 @@ CREATE TABLE `residential` (
 --
 
 INSERT INTO `residential` (`residential_id`, `residential_type`, `residential_price`, `residential_img`, `residential_description`, `residential_year`, `furnishing`, `res_state`, `res_cities`, `status`) VALUES
-(1, 'Apartment', 20000, '', 'test', 2003, 'Partially Furnishing', 'Melaka', 'Durian Tunggal', ''),
-(2, '2-Sty Terrace', 2000, '', 'test2', 2003, 'Not Furnishing', 'Negeri Sembilan', 'Batu Berendam', ''),
-(3, '1-Sty Terrace', 23000, '', 'aaa', 2000, 'Partially Furnishing', 'Johor', 'Batu Berendam', '');
+(1, 'Apartment', 20000, '', 'test', 2003, 'Partially Furnishing', 'Melaka', 'Durian Tunggal', 'ACCEPT'),
+(2, '2-Sty Terrace', 2000, '', 'test2', 2003, 'Not Furnishing', 'Negeri Sembilan', 'Batu Berendam', 'ACCEPT'),
+(3, '1-Sty Terrace', 23000, '', 'aaa', 2000, 'Partially Furnishing', 'Johor', 'Batu Berendam', 'ACCEPT');
 
 -- --------------------------------------------------------
 

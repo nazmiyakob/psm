@@ -35,7 +35,8 @@
       <nav>
         <ul id="menu">
           <li><a href="admin.php">Home</a></li>
-          <li class="end" id="menu_active"><a href="approvement.php">Approvement</a></li>
+          <li id="menu_active"><a href="approvement.php">Approvement</a></li>
+          <li class="endr" ><a href="logout.php">LogOut</a></li>
         </ul>
       </nav>
     </header>
@@ -78,8 +79,8 @@
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_year'] . "</td>";
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['res_state'] . "</td>";
-                  echo "<input type='hidden' name='event_id' value=" . $query2['residential_id'] . ">";
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . "</td>";
+                  echo "<td align='center'>&nbsp;" . "<button class='button' type='submit' span='2' name='btn_accept'>ACCEPT</button><button class='button' type='submit' span='2' name='btn_reject'>REJECT</button>" . "<input type='hidden' name='event_id' value=".$query2['residential_id']. "</td>";
                   echo "</td>";
                   echo "</tr>";
                 }

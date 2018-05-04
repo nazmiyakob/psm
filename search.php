@@ -35,10 +35,9 @@
       <nav>
         <ul id="menu">
           <li><a href="index.php">Home</a></li>
-          <li><a href="renting.php">Rent</a></li>
-          <li id="menu_active"><a href="selling.php">Sell</a></li>
-          <li class="menu_active"><a href="account.php">Account</a></li>
-          <li id="end">
+          <li id="menu_active"><a href="renting.php">Rent</a></li>
+          <li><a href="selling.php">Sell</a></li>
+          <li id="end"><a href="account.php">Account</a></li>
             
           </li>
         </ul>
@@ -70,7 +69,13 @@
           </table>
         </form>
         <article class="col1">
-          <div id="slider"> <img src="images/1sty.jpg" height="376" width="683" alt="" title="<strong>One storey house <a href=''>Read more</a></span>"> <img src="images/2sty.jpg" height="376" width="683" alt="" title="<strong>Two storey house <a href=''>Read more</a></span>"> <img src="images/appartment.jpg" height="376" width="683" alt="" title="<strong>Appartment <a href=''>Read more</a></span>"> </div>
+
+          <div id="slider">
+            <img src="images/img1.jpg" height="376" width="683" alt="" title="<strong>One storey house <a href=''>Read more</a></span>">
+            <img src="images/img2.jpg" height="376" width="683" alt="" title="<strong>Two storey house <a href=''>Read more</a></span>">
+            <img src="images/img3.jpg" height="376" width="683" alt="" title="<strong>Appartment <a href=''>Read more</a></span>">
+          </div>
+
         </article>
         <article class="col2">
           <form id="form_1" action="" method="post">
@@ -163,23 +168,22 @@
         mysql_connect("localhost","root","");
         mysql_select_db("e_rented_house");
         
-        $query1=mysql_query("SELECT * FROM residential");
+        $query1=mysql_query("SELECT * FROM residential WHERE status='ACCEPT'");
 
-        echo "<p><br>
-        <table border='10' text-align='center' width='100%'>
+        echo "<table border='10' text-align='center' width='100%'>
         <tr class='color2'>
-          <th><center> Residential Type </center></th>
-          <th><center> Residential Price </center></th>
-          <th><center> Residential Year </center></th>
-          <th><center> Residential Furnishing </center></th>
-          <th><center> State </center></th>
-          <th><center> Cities </center></th>
+          <th><center><h3> Residential Type </center></th>
+          <th><center><h3> Residential Price </center></th>
+          <th><center><h3> Residential Year </center></th>
+          <th><center><h3> Residential Furnishing </center></th>
+          <th><center><h3> State </center></th>
+          <th><center><h3> Cities </center></th>
         </tr>
         </div></div>";
 
         while($query2=mysql_fetch_array($query1))
         {
-          echo "<form action='edit_event2.php' method='post'>";
+          echo "<form>";
           echo "";
           echo"<tr height='30px' class='color2'>";
           echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
@@ -194,8 +198,7 @@
         }
         
         echo "</table>";
-
-      ?>                
+      ?>
     </div>
   </div>
 </div>

@@ -148,6 +148,10 @@ header {
 	float:left;
 	background:url(../images/menu_line.gif) right 0 no-repeat
 }
+#menu .endr {
+	background:none;
+	text-align: right
+}
 #menu .end {
 	background:none;
 	padding-right:0

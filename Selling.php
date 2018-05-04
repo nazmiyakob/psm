@@ -51,7 +51,13 @@
     <section id="content">
       <div class="wrapper">
         <article class="col1">
-          <div id="slider"> <img src="images/1sty.jpg" height="376" width="683" alt="" title="<strong>One storey house <a href=''>Read more</a></span>"> <img src="images/2sty.jpg" height="376" width="683" alt="" title="<strong>Two storey house <a href=''>Read more</a></span>"> <img src="images/appartment.jpg" height="376" width="683" alt="" title="<strong>Appartment <a href=''>Read more</a></span>"> </div>
+
+          <div id="slider">
+            <img src="images/img1.jpg" height="376" width="683" alt="" title="<strong>One storey house <a href=''>Read more</a></span>">
+            <img src="images/img2.jpg" height="376" width="683" alt="" title="<strong>Two storey house <a href=''>Read more</a></span>">
+            <img src="images/img3.jpg" height="376" width="683" alt="" title="<strong>Appartment <a href=''>Read more</a></span>">
+          </div>
+          
         </article>
         <article class="col2">
           <form id="form_1" action="" method="post">
@@ -149,12 +155,12 @@
         echo "<p><br>
         <table border='10' text-align='center' width='100%'>
         <tr class='color2'>
-          <th><center> Residential Type </center></th>
-          <th><center> Residential Price </center></th>
-          <th><center> Residential Year </center></th>
-          <th><center> Residential Furnishing </center></th>
-          <th><center> State </center></th>
-          <th><center> Cities </center></th>
+          <th><center><h3> Residential Type </center></th>
+          <th><center><h3> Residential Price </center></th>
+          <th><center><h3> Residential Year </center></th>
+          <th><center><h3> Residential Furnishing </center></th>
+          <th><center><h3> Location </center></th>
+          <th><center><h3> Details </center></th>
         </tr>
         </div></div>";
 
@@ -167,9 +173,12 @@
           echo "<td align='center' valign='top'>&nbsp;RM " . $query2['residential_price'] . "</td>";
           echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_year'] . "</td>";
           echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
-          echo "<td align='center' valign='top'>&nbsp;" . $query2['res_state'] . "</td>";
+          echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
           echo "<input type='hidden' name='event_id' value=" . $query2['residential_id'] . ">";
-          echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . "</td>";
+          echo "<td align='center'>
+        
+            <button type='submit' span='2' >BUY</button></form>";
+          echo "</td>";
           echo "</td>";
           echo "</tr>";
         }

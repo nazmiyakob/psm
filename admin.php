@@ -35,7 +35,8 @@
       <nav>
         <ul id="menu">
           <li id="menu_active"><a href="admin.php">Home</a></li>
-          <li class="end"><a href="approvement.php">Approvement</a></li>
+          <li class="menu_active"><a href="approvement.php">Approvement</a></li>
+          <li class="endr" ><a href="logout.php">LogOut</a></li>
         </ul>
       </nav>
     </header>
