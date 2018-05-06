@@ -76,7 +76,7 @@
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['fullname'] . "</td>";
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['ic_no'] . "</td>";
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['email'] . "</td>";
-                  echo "<td align='center'>&nbsp;" . "<form action='' method='POST'><button type='submit' span='2' formaction='user_delete.php?fullname=".$query2['fullname']."'>DELETE</button></form>";
+                  echo "<td align='center'>&nbsp;" . "<form action='' method='POST'><button type='submit' class='button' span='2' formaction='user_delete.php?fullname=".$query2['fullname']."'>DELETE</button></form>";
                   echo "</td>";
                   echo "</tr>";
                 }

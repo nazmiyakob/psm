@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2018 at 09:47 AM
+-- Generation Time: May 06, 2018 at 11:14 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -48405,17 +48405,20 @@ CREATE TABLE `residential` (
   `furnishing` varchar(50) NOT NULL,
   `res_state` varchar(50) NOT NULL,
   `res_cities` varchar(50) NOT NULL,
-  `status` varchar(6) NOT NULL
+  `sales` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `residential`
 --
 
-INSERT INTO `residential` (`residential_id`, `residential_type`, `residential_price`, `residential_img`, `residential_description`, `residential_year`, `furnishing`, `res_state`, `res_cities`, `status`) VALUES
-(1, 'Apartment', 20000, '', 'test', 2003, 'Partially Furnishing', 'Melaka', 'Durian Tunggal', 'ACCEPT'),
-(2, '2-Sty Terrace', 2000, '', 'test2', 2003, 'Not Furnishing', 'Negeri Sembilan', 'Batu Berendam', 'ACCEPT'),
-(3, '1-Sty Terrace', 23000, '', 'aaa', 2000, 'Partially Furnishing', 'Johor', 'Batu Berendam', 'ACCEPT');
+INSERT INTO `residential` (`residential_id`, `residential_type`, `residential_price`, `residential_img`, `residential_description`, `residential_year`, `furnishing`, `res_state`, `res_cities`, `sales`, `status`) VALUES
+(1, 'Apartment', 20000, '', 'test', 2003, 'Partially Furnishing', 'Melaka', 'Durian Tunggal', 'Selling', 'Reject'),
+(2, '2-Sty Terrace', 2000, '', 'test2', 2003, 'Not Furnishing', 'Negeri Sembilan', 'Batu Berendam', 'Selling', 'Accept'),
+(3, '1-Sty Terrace', 23000, '', 'aaa', 2000, 'Partially Furnishing', 'Johor', 'Batu Berendam', 'Selling', 'Accept'),
+(4, 'Appartment', 600, '', 'Test2', 2012, 'Not Furnishing', 'Melaka', 'Durian Tunggal', 'Renting', 'Accept'),
+(5, 'Apartment', 600, '', 'Test', 2012, 'Not Furnished', 'Melaka', 'Durian Tunggal', 'Renting', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -52633,7 +52636,7 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `residential`
 --
 ALTER TABLE `residential`
-  MODIFY `residential_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `residential_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `states`

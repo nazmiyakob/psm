@@ -172,12 +172,11 @@
 
         echo "<table border='10' text-align='center' width='100%'>
         <tr class='color2'>
-          <th><center><h3> Residential Type </center></th>
-          <th><center><h3> Residential Price </center></th>
-          <th><center><h3> Residential Year </center></th>
-          <th><center><h3> Residential Furnishing </center></th>
-          <th><center><h3> State </center></th>
-          <th><center><h3> Cities </center></th>
+          <th><center><h3> Details </center></th>
+          <th><center><h3> Residential </center></th>
+          <th><center><h3> Price </center></th>
+          <th><center><h3> Furnishing </center></th>
+          <th><center><h3> Location </center></th>
         </tr>
         </div></div>";
 
@@ -186,13 +185,12 @@
           echo "<form>";
           echo "";
           echo"<tr height='30px' class='color2'>";
+          echo "<td align='center' valign='top'>&nbsp;<a href='details.php'>Details</a></td>";
           echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
           echo "<td align='center' valign='top'>&nbsp;RM " . $query2['residential_price'] . "</td>";
-          echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_year'] . "</td>";
           echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
-          echo "<td align='center' valign='top'>&nbsp;" . $query2['res_state'] . "</td>";
+          echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
           echo "<input type='hidden' name='event_id' value=" . $query2['residential_id'] . ">";
-          echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . "</td>";
           echo "</td>";
           echo "</tr>";
         }
