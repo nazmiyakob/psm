@@ -49,6 +49,21 @@
   <div class="main">
     <section id="content">
       <div class="wrapper">
+
+        <form action="search.php" method="post">
+              <div class="row_select">Search By :
+              <select name="searchtype" required="required" >
+                <option value="">Select Options</option>
+                <option value="type">Residential Type</option>
+                <option value="price">Residential Price</option>
+                <option value="state">Residential State</option>
+              </select>
+
+              <input type="text" name="search_data" size="40"  required="required" />
+              <input  class="button" type="submit" name="search" value="Search"/>
+            </div>
+        </form>
+        
         <article class="col1">
 
           <div id="slider">
@@ -169,7 +184,7 @@
           echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
           echo "<input type='hidden' name='event_id' value=" . $query2['residential_id'] . ">";
           echo "<td align='center'>
-                  <button type='submit' span='2' >BUY</button></form>";
+                  <button type='submit' class='button' span='2' >BUY</button></form>";
           echo "</td>";
           echo "</td>";
           echo "</tr>";

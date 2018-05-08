@@ -50,6 +50,21 @@
   <div class="main">
     <section id="content">
       <div class="wrapper">
+
+        <form action="search.php" method="post">
+              <div class="row_select">Search By :
+              <select name="searchtype" required="required" >
+                <option value="">Select Options</option>
+                <option value="type">Residential Type</option>
+                <option value="price">Residential Price</option>
+                <option value="state">Residential State</option>
+              </select>
+
+              <input type="text" name="search_data" size="40"  required="required" />
+              <input  class="button" type="submit" name="search" value="Search"/>
+            </div>
+        </form>
+        
         <article class="col1">
 
           <div id="slider">
@@ -117,8 +132,8 @@
               </div>
               
               <div class="row_select">
-                <div class="cols"> Bedroom(s):<br>
-                  <!-- <select>
+                <div class="cols"><!-- Bedroom(s):<br>
+                   <select>
                     <option>&nbsp;</option>
                     <option name="bedroom_count" value="1">1</option>
                     <option name="bedroom_count" value="2">2</option>
@@ -150,7 +165,7 @@
         mysql_connect("localhost","root","");
         mysql_select_db("e_rented_house");
         
-        $query1=mysql_query("SELECT * FROM residential WHERE status='ACCEPT'");
+        $query1=mysql_query("SELECT * FROM residential WHERE status='ACCEPT' AND sales='Selling'");
 
         echo "<p><br>
         <table border='10' text-align='center' width='100%'>
@@ -176,7 +191,7 @@
           echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
           echo "<input type='hidden' name='event_id' value=" . $query2['residential_id'] . ">";
           echo "<td align='center'>
-                  <button type='submit' span='2' >BUY</button></form>";
+                  <button type='submit' class='button' span='2' >BUY</button></form>";
           echo "</td>";
           echo "</td>";
           echo "</tr>";
