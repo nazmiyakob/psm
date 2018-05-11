@@ -35,11 +35,11 @@
       <nav>
         <ul id="menu">
           <li><a href="index.php">Home</a></li>
-          <li><a href="renting.php">Rent</a></li>
-          <li><a href="selling.php">Sell</a></li>
-          <li id="end"><a href="account.php">Account</a></li>
-            
-          </li>
+          <li><a href="renting.php">Renting</a></li>
+          <li><a href="selling.php">Selling</a></li>
+          <li><a href="upload.php">Upload</a></li>
+          <li class="end"><a href="account.php">Login</a></li>
+        </ul>
         </ul>
       </nav>
     </header>
@@ -190,7 +190,7 @@
 
               while($query2=mysql_fetch_array($query))
               {
-                echo "<form action='search.php' method='post'>";
+                echo "<form action='booking.php' method='post'>";
                 echo "";
                 echo"<tr height='30px' class='color2'>";
                 echo "<td align='center' valign='top'>&nbsp;<a href='details.php'>Details</a></td>";
@@ -240,7 +240,7 @@
 
               while($query2=mysql_fetch_array($query))
               {
-                echo "<form action='search.php' method='post'>";
+                echo "<form action='payment.php' method='post'>";
                 echo "";
                 echo"<tr height='30px' class='color2'>";
                 echo "<td align='center' valign='top'>&nbsp;<a href='details.php'>Details</a></td>";
@@ -290,7 +290,7 @@
 
               while($query2=mysql_fetch_array($query))
               {
-                echo "<form action='search.php' method='post'>";
+                echo "<form action='payment.php' method='post'>";
                 echo "";
                 echo"<tr height='30px' class='color2'>";
                 echo "<td align='center' valign='top'>&nbsp;<a href='details.php'>Details</a></td>";

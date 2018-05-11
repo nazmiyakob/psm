@@ -24,7 +24,7 @@
   <div class="main">
     <!-- header -->
     <header>
-      <img src="../images/logo_img.png">
+      <h1><a href="index.php" id="logo"></a></h1>
       <div class="wrapper">
         <ul id="icons">
           <li><a href="#" class="normaltip"><img src="images/icon1.jpg" alt=""></a></li>
@@ -34,7 +34,7 @@
       </div>
       <nav>
         <ul id="menu">
-          <li id="menu_active"><a href="index.php">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li><a href="renting.php">Renting</a></li>
           <li><a href="selling.php">Selling</a></li>
           <li><a href="upload.php">Upload</a></li>
@@ -50,90 +50,30 @@
   <div class="main">
     <section id="content">
       <div class="wrapper">
-        <article class="col1">
-
-          <div id="slider">
-            <img src="images/img1.jpg" height="376" width="683" alt="" title="<strong>One storey house <a href=''>Read more</a></span>">
-            <img src="images/img2.jpg" height="376" width="683" alt="" title="<strong>Two storey house <a href=''>Read more</a></span>">
-            <img src="images/img3.jpg" height="376" width="683" alt="" title="<strong>Appartment <a href=''>Read more</a></span>">
-          </div>
-
-        </article>
         <article class="col2">
-          <form id="form_1" action="#" method="post">
+          <form id="form_1" action="" method="post">
             <div class="pad1">
-              <h3>Find Your Property</h3>
-              <div class="row"> Search :<br>
-                <input type="text" class="input">
+              <h3>Booking</h3>
+              <div class="row"> Full Name :<br>
+                <input type="text" class="input" name="book_fullname">
               </div>
-              <div class="row_select"> State : <br>
-                <select>
-                  <option>&nbsp;</option>
-                  <option>Melaka</option>
-                  <option>Johor</option>
-                  <option>Negeri Sembilan</option>
-                  <option>Selangor</option>
-                </select>
+              <div class="row"> IC Number :<br>
+                <input type="text" class="input" name="book_ic_no">
               </div>
-              <div class="row_select"> Cities : <br>
-                <select>
-                  <option>&nbsp;</option>
-                  <option>...</option>
-                  <option>...</option>
-                  <option>...</option>
-                  <option>...</option>
-                </select>
+              <div class="row"> Email :<br>
+                <input type="text" class="input" name="book_email">
               </div>
-              <div class="row_select"> Residential Type : <br>
-                <select>
-                  <option>&nbsp;</option>
-                  <option>Apartment</option>
-                  <option>Flat</option>
-                  <option>1-Sty Terrace</option>
-                  <option>2-Sty Terrace</option>
-                  <option>Town House</option>
-                </select>
+              <div class="row"> Phone Number :<br>
+                <input type="text" class="input" name="book_phone_num">
               </div>
+
               <div class="row_select">
-                <div class="cols"> Min Price : <br>
-                  <select>
-                    <option>&nbsp;</option>
-                    <option>200</option>
-                    <option>400</option>
-                    <option>600</option>
-                    <option>800</option>
-                    <option>1000</option>
-                    <option>1200</option>
-                  </select>
-                </div>
-                <div class="cols pad_left1"> Max Price : <br>
-                  <select>
-                    <option>&nbsp;</option>
-                    <option>200</option>
-                    <option>400</option>
-                    <option>600</option>
-                    <option>800</option>
-                    <option>1000</option>
-                    <option>1200</option>
-                  </select>
-                </div>
+                <div class="cols pad_left1">
+                <input type="submit" name="btn_book" value="Booking" class="button">
               </div>
-              <div class="row_select">
-                <div class="cols"> Bedroom(s):<br>
-                  <select>
-                    <option>&nbsp;</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-                <div class="cols pad_left1"> <a href="#" class="button">Search</a> </div>
               </div> <br>
             </div>
           </form>
-        </article>
       </div>
     </section>
   </div>
@@ -176,3 +116,49 @@ $(window).load(function () {
 </script>
 </body>
 </html>
+
+      <?php
+        $residential_id = $_POST['residential_id'];
+      ?>
+
+<?php
+if(isset($_POST['btn_book']))
+{
+
+  $username = "root";
+  $password = "";
+  $hostname = "localhost";
+
+
+  $con = mysql_connect($hostname, $username, $password) or die("Could not connect to database");
+
+  mysql_select_db("e_rented_house", $con); 
+
+    $query=mysql_query("SELECT * FROM residential WHERE residential_id=$residential_id");
+    $numrows=mysql_num_rows($query);
+    if($numrows==0)
+    {
+      $sql = "INSERT INTO booking (residential_id, book_fullname, book_ic_no, book_email, book_phone_number) VALUES('$_POST[residential_id]','$_POST[book_fullname]', '$_POST[book_ic_no]', '$_POST[book_email]', '$_POST[book_phone_number]')";
+      
+      $result=mysql_query($sql);
+      
+      if($result)
+      {
+        echo '<script language = "JavaScript">alert("YOUR REQUEST WILL BE PROCESS.")</script>';
+        print '<meta http-equiv="refresh" content="0;URL=index.php">';
+      }
+      else
+      {
+        echo '<script language = "JavaScript">alert("ERROR")</script>';
+        print '<meta http-equiv="refresh" content="0;URL=index.php">';
+      }
+    }
+    else
+    {
+      echo '<script language = "JavaScript">alert("NO QUERY")</script>';
+      print '<meta http-equiv="refresh" content="0;URL=index.php">';
+    }
+    
+  
+}
+?>

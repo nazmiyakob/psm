@@ -37,59 +37,93 @@
           <li><a href="index.php">Home</a></li>
           <li><a href="renting.php">Renting</a></li>
           <li><a href="selling.php">Selling</a></li>
-          <li><a href="upload.php">Upload</a></li>
-          <li class="end" id="menu_active"><a href="account.php">Login</a></li>
+          <li id="menu_active"><a href="upload.php">Upload</a></li>
+          <li class="end"><a href="account.php">Login</a></li>
         </ul>
       </nav>
     </header>
     <!-- / header -->
   </div>
 </div>
+
 <!-- content -->
 <div class="body2">
   <div class="main">
     <section id="content">
       <div class="wrapper">
         <article class="col2">
-          <form id="form_1" action="#" method="post">
+          <form id="form_1" action="" method="post">
             <div class="pad1">
-              <h3>Register</h3>
-              <div class="row"> IC Number :<br>
-                <input type="text" class="input" name="ic_no">
-              </div>
-              <div class="row"> Full Name :<br>
-                <input type="text" class="input" name="fullname">
-              </div>
-              <div class="row"> Password :<br>
-                <input type="password" class="input" name="password">
-              </div>
-              <div class="row"> Email :<br>
-                <input type="text" class="input" name="email">
-              </div>
-              <div class="row"> Phone Number :<br>
-                <input type="text" class="input" name="phone_number">
-              </div>
-
+              <h3>Sell Your Property</h3>
               <div class="row_select">
-                <div class="cols pad_left1">
-                <input type="submit" name="btn_register" value="Register" class="button">
+                <div class="cols"> State : <br>
+                  <select name="res_state" required>
+                    <option value="">&nbsp;</option>
+                    <option value="Melaka">Melaka</option>
+                    <option value="Johor">Johor</option>
+                    <option value="Negeri Sembilan">Negeri Sembilan</option>
+                    <option value="Selangor">Selangor</option>
+                  </select>
+                </div>
+                <div class="cols pad_left1"> Cities : <br>
+                  <select name="res_cities" required>
+                    <option value="">&nbsp;</option>
+                    <option value="Ayer Keroh">Ayer Keroh</option>
+                    <option value="Durian Tunggal">Durian Tunggal</option>
+                    <option value="Batu Berendam">Batu Berendam</option>
+                    <option value="Jasin">Jasin</option>
+                  </select>
+                </div>
               </div>
-              </div> <br>
-            </div>
-          </form>
-        </article>
-        <article class="col2">
-          <form id="form_1" action="authenticate.php" method="post">
-            <div class="pad1">
-              <h3>Log In</h3>
-              <div class="row"> IC Number :<br>
-                <input type="text" class="input" name="ic_no">
-              </div>
-              <div class="row"> Password :<br>
-                <input type="password" class="input" name="password">
               
               <div class="row_select">
-                <div class="cols pad_left1"><input id="submit" class="button" type="submit" name="submit" value="Login"> </div>
+                <div class="cols"> Residential Type <br>
+                  <select name="residential_type" required>
+                    <option value="">&nbsp;</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Flat">Flat</option>
+                    <option value="1-Sty Terrace">1-Sty Terrace</option>
+                    <option value="2-Sty Terrace">2-Sty Terrace</option>
+                    <option value="Town">Town House</option>
+                  </select>
+                </div>
+                <div class="cols pad_left1"> Furnishing : <br>
+                  <select name="furnishing" required>
+                    <option value="">&nbsp;</option>
+                    <option value="Fully Furnished">Fully Furnished</option>
+                    <option value="Partially Furnished">Partially Furnished</option>
+                    <option value="Not Furnished">Not Furnished</option>
+                  </select>
+                </div>
+
+              <div class="row_select"> Year of Residential : <br>
+                  <input type="number" name="residential_year" required>
+              </div>
+
+              <div class="row_select"> Price (RM) : <br>  
+                <input type="number" name="residential_price" required>
+              </div>
+
+              <div class="row_select"> Residential Description : <br>  
+                <textarea rows="4" cols="30" name="residential_description" required></textarea>
+              </div>
+              
+              <div class="row_select">
+                <div class="cols"><!-- Bedroom(s):<br>
+                   <select>
+                    <option>&nbsp;</option>
+                    <option name="bedroom_count" value="1">1</option>
+                    <option name="bedroom_count" value="2">2</option>
+                    <option name="bedroom_count" value="3">3</option>
+                    <option name="bedroom_count" value="4">4</option>
+                    <option name="bedroom_count" value="5">5</option>
+                  </select> -->
+                </div>
+
+                <div class="cols pad_left1">
+                  <input type="submit" name="btn_submit" value="Upload" class="button">
+                </div>
+
               </div> <br>
             </div>
           </form>
@@ -98,6 +132,7 @@
     </section>
   </div>
 </div>
+
 <script>Cufon.now();</script>
 <script>
 $(window).load(function () {
@@ -134,10 +169,12 @@ $(window).load(function () {
     Cufon.refresh();
 });
 </script>
+
+
 </body>
 </html>
 <?php
-if(isset($_POST['btn_register']))
+if(isset($_POST['btn_submit']))
 {
 
   $username = "root";
@@ -149,31 +186,22 @@ if(isset($_POST['btn_register']))
 
   mysql_select_db("e_rented_house", $con); 
 
-    $query=mysql_query("SELECT * FROM user");
+    $query=mysql_query("SELECT * FROM residential");
     $numrows=mysql_num_rows($query);
-    if($numrows==0)
-    {
-      $sql = "INSERT INTO user (ic_no, fullname, password, email, phone_number) VALUES('$_POST[ic_no]', '$_POST[fullname]', '$_POST[password]', '$_POST[email]', '$_POST[phone_number]')";
+
+    $sql = "INSERT INTO residential (residential_id, res_state, res_cities, residential_type, furnishing, residential_year, residential_price, residential_description) VALUES('$residential_id', '$_POST[res_state]', '$_POST[res_cities]', '$_POST[residential_type]', '$_POST[furnishing]', '$_POST[residential_year]', '$_POST[residential_price]', '$_POST[residential_description]')";
       
       $result=mysql_query($sql);
       
       if($result)
       {
         echo '<script language = "JavaScript">alert("YOUR DATA HAS BEEN SAVED")</script>';
-        print '<meta http-equiv="refresh" content="0;URL=account.php">';
+        print '<meta http-equiv="refresh" content="0;URL=upload.php">';
       }
       else
       {
         echo '<script language = "JavaScript">alert("DATA NOT SAVED")</script>';
-        print '<meta http-equiv="refresh" content="0;URL=account.php">';
-      }
-    }
-    else
-    {
-      echo '<script language = "JavaScript">alert("NO QUERY")</script>';
-      print '<meta http-equiv="refresh" content="0;URL=account.php">';
-    }
-    
-  
+        print '<meta http-equiv="refresh" content="0;URL=upload.php">';
+      }  
 }
 ?>
