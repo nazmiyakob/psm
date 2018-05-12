@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2018 at 11:14 PM
+-- Generation Time: May 12, 2018 at 05:01 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -25,14 +25,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bedroom`
+-- Table structure for table `booking`
 --
 
-CREATE TABLE `bedroom` (
-  `bedroom_id` int(1) NOT NULL,
-  `residential_id` int(5) NOT NULL,
-  `bedroom_count` int(1) NOT NULL
+CREATE TABLE `booking` (
+  `booking_id` int(20) NOT NULL,
+  `residential_id` int(20) NOT NULL,
+  `book_fullname` varchar(100) NOT NULL,
+  `book_ic_no` bigint(20) NOT NULL,
+  `book_email` varchar(50) NOT NULL,
+  `book_phone_num` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`booking_id`, `residential_id`, `book_fullname`, `book_ic_no`, `book_email`, `book_phone_num`) VALUES
+(12, 0, 'Meor Syarifuddin', 940116142005, 'meor_syarifuddin@gmail.com', 136625486),
+(16, 2, 'Meor Syarifuddin', 940116142005, 'meor_syarifuddin@gmail.com', 136625486),
+(17, 4, 'Fitri Amri', 940313025613, 'fit3amri@gmail.com', 142460635);
 
 -- --------------------------------------------------------
 
@@ -48396,7 +48408,7 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 --
 
 CREATE TABLE `residential` (
-  `residential_id` int(5) NOT NULL,
+  `residential_id` int(20) NOT NULL,
   `residential_type` varchar(20) NOT NULL,
   `residential_price` int(5) NOT NULL,
   `residential_img` longblob NOT NULL,
@@ -48417,7 +48429,7 @@ INSERT INTO `residential` (`residential_id`, `residential_type`, `residential_pr
 (1, 'Apartment', 20000, '', 'test', 2003, 'Partially Furnishing', 'Melaka', 'Durian Tunggal', 'Selling', 'Reject'),
 (2, '2-Sty Terrace', 2000, '', 'test2', 2003, 'Not Furnishing', 'Negeri Sembilan', 'Batu Berendam', 'Selling', 'Accept'),
 (3, '1-Sty Terrace', 23000, '', 'aaa', 2000, 'Partially Furnishing', 'Johor', 'Batu Berendam', 'Selling', 'Accept'),
-(4, 'Appartment', 600, '', 'Test2', 2012, 'Not Furnishing', 'Melaka', 'Durian Tunggal', 'Renting', 'Accept'),
+(4, 'Apartment', 600, '', 'Test2', 2012, 'Not Furnishing', 'Melaka', 'Durian Tunggal', 'Renting', 'Accept'),
 (5, 'Apartment', 600, '', 'Test', 2012, 'Not Furnished', 'Melaka', 'Durian Tunggal', 'Renting', 'Pending');
 
 -- --------------------------------------------------------
@@ -52586,11 +52598,10 @@ INSERT INTO `user` (`ic_no`, `fullname`, `password`, `email`, `phone_number`, `u
 --
 
 --
--- Indexes for table `bedroom`
+-- Indexes for table `booking`
 --
-ALTER TABLE `bedroom`
-  ADD PRIMARY KEY (`bedroom_id`),
-  ADD UNIQUE KEY `residential_id` (`residential_id`);
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`booking_id`);
 
 --
 -- Indexes for table `cities`
@@ -52602,7 +52613,7 @@ ALTER TABLE `cities`
 -- Indexes for table `residential`
 --
 ALTER TABLE `residential`
-  ADD PRIMARY KEY (`residential_id`);
+  ADD PRIMARY KEY (`residential_id`) USING BTREE;
 
 --
 -- Indexes for table `states`
@@ -52621,10 +52632,10 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `bedroom`
+-- AUTO_INCREMENT for table `booking`
 --
-ALTER TABLE `bedroom`
-  MODIFY `bedroom_id` int(1) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `booking`
+  MODIFY `booking_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `cities`
@@ -52636,7 +52647,7 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `residential`
 --
 ALTER TABLE `residential`
-  MODIFY `residential_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `residential_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `states`
