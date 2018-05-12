@@ -182,7 +182,7 @@
 
         while($query2=mysql_fetch_array($query1))
         {
-          echo "<form action='booking.php' method='post'>";
+          echo "<form action='booking.php' method='POST'>";
           echo "";
           echo"<tr height='30px' class='color2'>";
           echo "<td align='center' valign='top'>&nbsp;<a href='details.php'>Details</a></td>";
@@ -190,7 +190,7 @@
           echo "<td align='center' valign='top'>&nbsp;RM " . $query2['residential_price'] . "</td>";
           echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
           echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
-          echo "<input type='hidden' name='event_id' value=" . $query2['residential_id'] . ">";
+          echo "<input type='hidden' name='residential_id' value=" . $query2['residential_id'] . ">";
           echo "<td align='center'>
                   <button type='submit' class='button' span='2' >BUY</button></form>";
           echo "</td>";

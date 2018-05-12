@@ -47,6 +47,12 @@
 </div>
 <!-- content -->
 <div class="body2">
+
+      <?php
+        $residential_id = $_POST['residential_id'];
+        echo "<h1>$residential_id</h1>";
+      ?>
+
   <div class="main">
     <section id="content">
       <div class="wrapper">
@@ -66,6 +72,8 @@
               <div class="row"> Phone Number :<br>
                 <input type="text" class="input" name="book_phone_num">
               </div>
+
+              <input type="hidden" class="input" name="residential_id" value="<?php echo $residential_id; ?>">
 
               <div class="row_select">
                 <div class="cols pad_left1">
@@ -117,47 +125,46 @@ $(window).load(function () {
 </body>
 </html>
 
-      <?php
-        $residential_id = $_POST['residential_id'];
-      ?>
-
 <?php
+        
 if(isset($_POST['btn_book']))
 {
 
   $username = "root";
   $password = "";
   $hostname = "localhost";
+  $residential_id = $_POST['residential_id'];
 
 
   $con = mysql_connect($hostname, $username, $password) or die("Could not connect to database");
 
   mysql_select_db("e_rented_house", $con); 
 
-    $query=mysql_query("SELECT * FROM residential WHERE residential_id=$residential_id");
-    $numrows=mysql_num_rows($query);
-    if($numrows==0)
-    {
-      $sql = "INSERT INTO booking (residential_id, book_fullname, book_ic_no, book_email, book_phone_number) VALUES('$_POST[residential_id]','$_POST[book_fullname]', '$_POST[book_ic_no]', '$_POST[book_email]', '$_POST[book_phone_number]')";
+    //$query=mysql_query("SELECT * FROM residential WHERE residential_id='".$residential_id."'");
+    //$numrows=mysql_num_rows($query);
+    // if($numrows==0)
+    // {
+      $sql = "INSERT INTO booking (residential_id, book_fullname, book_ic_no, book_email, book_phone_num) VALUES('$residential_id','$_POST[book_fullname]', '$_POST[book_ic_no]', '$_POST[book_email]', '$_POST[book_phone_num]')";
       
       $result=mysql_query($sql);
       
-      if($result)
-      {
-        echo '<script language = "JavaScript">alert("YOUR REQUEST WILL BE PROCESS.")</script>';
-        print '<meta http-equiv="refresh" content="0;URL=index.php">';
-      }
-      else
-      {
-        echo '<script language = "JavaScript">alert("ERROR")</script>';
-        print '<meta http-equiv="refresh" content="0;URL=index.php">';
-      }
-    }
-    else
-    {
-      echo '<script language = "JavaScript">alert("NO QUERY")</script>';
-      print '<meta http-equiv="refresh" content="0;URL=index.php">';
-    }
+        if($result)
+        {
+          echo '<script language = "JavaScript">alert("YOUR REQUEST WILL BE PROCESS.")</script>';
+          // print '<meta http-equiv="refresh" content="0;URL=index.php">';
+        }
+        else
+        {
+          echo '<script language = "JavaScript">alert("ERROR")</script>';
+          // print '<meta http-equiv="refresh" content="0;URL=index.php">';
+        }
+    // }
+
+    // else
+    // {
+    //   echo '<script language = "JavaScript">alert("NO QUERY")</script>';
+    //   print '<meta http-equiv="refresh" content="0;URL=index.php">';
+    // }
     
   
 }
