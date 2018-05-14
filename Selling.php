@@ -76,78 +76,71 @@
           
         </article>
         <article class="col2">
-          <form id="form_1" action="" method="post">
+          <form id="form_1" action="search.php" method="post">
             <div class="pad1">
-              <h3>Sell Your Property</h3>
-              <div class="row_select">
-                <div class="cols"> State : <br>
-                  <select name="res_state" required>
-                    <option value="">&nbsp;</option>
+              <h3>Find Your Property</h3>
+              <div class="row"> Search :<br>
+                <input type="text" class="input" name="seacrhdata">
+              </div>
+              <div class="row_select"> State : <br>
+                <select name="res_state">
+                    <option>&nbsp;</option>
                     <option value="Melaka">Melaka</option>
                     <option value="Johor">Johor</option>
                     <option value="Negeri Sembilan">Negeri Sembilan</option>
                     <option value="Selangor">Selangor</option>
                   </select>
-                </div>
-                <div class="cols pad_left1"> Cities : <br>
-                  <select name="res_cities" required>
-                    <option value="">&nbsp;</option>
+              </div>
+              <div class="row_select"> Cities : <br>
+                  <select name="res_cities">
+                    <option>&nbsp;</option>
                     <option value="Ayer Keroh">Ayer Keroh</option>
                     <option value="Durian Tunggal">Durian Tunggal</option>
                     <option value="Batu Berendam">Batu Berendam</option>
                     <option value="Jasin">Jasin</option>
                   </select>
-                </div>
               </div>
-              
-              <div class="row_select">
-                <div class="cols"> Residential Type <br>
-                  <select name="residential_type" required>
-                    <option value="">&nbsp;</option>
+              <div class="row_select"> Residential Type : <br>
+               <select name="residential_type">
+                    <option>&nbsp;</option>
                     <option value="Apartment">Apartment</option>
                     <option value="Flat">Flat</option>
                     <option value="1-Sty Terrace">1-Sty Terrace</option>
                     <option value="2-Sty Terrace">2-Sty Terrace</option>
                     <option value="Town">Town House</option>
                   </select>
-                </div>
-                <div class="cols pad_left1"> Furnishing : <br>
-                  <select name="furnishing" required>
-                    <option value="">&nbsp;</option>
+              </div>
+              <div class="row_select"> Furnishing : <br>
+                  <select name="furnishing">
+                    <option>&nbsp;</option>
                     <option value="Fully Furnished">Fully Furnished</option>
                     <option value="Partially Furnished">Partially Furnished</option>
                     <option value="Not Furnished">Not Furnished</option>
                   </select>
                 </div>
-
-              <div class="row_select"> Year of Residential : <br>
-                  <input type="number" name="residential_year" required>
-              </div>
-
-              <div class="row_select"> Price (RM) : <br>  
-                <input type="number" name="residential_price" required>
-              </div>
-
-              <div class="row_select"> Residential Description : <br>  
-                <textarea rows="4" cols="30" name="residential_description" required></textarea>
-              </div>
-              
-              <div class="row_select">
-                <div class="cols"><!-- Bedroom(s):<br>
-                   <select>
+              <div class="row_select"> Price (below than): <br>
+                  <select>
                     <option>&nbsp;</option>
-                    <option name="bedroom_count" value="1">1</option>
-                    <option name="bedroom_count" value="2">2</option>
-                    <option name="bedroom_count" value="3">3</option>
-                    <option name="bedroom_count" value="4">4</option>
-                    <option name="bedroom_count" value="5">5</option>
-                  </select> -->
+                    <option value="200">RM 200</option>
+                    <option value="200">RM 400</option>
+                    <option value="200">RM 600</option>
+                    <option value="200">RM 800</option>
+                    <option value="200">RM 1000</option>
+                    <option value="200">RM 1200</option>
+                  </select>
+              </div>
+              <div class="row_select">
+                <div class="cols"> Bedroom(s):<br>
+                  <select>
+                    <option>&nbsp;</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
                 </div>
-
-                <div class="cols pad_left1">
-                  <input type="submit" name="btn_submit" value="Upload" class="button">
-                </div>
-
+                <div class="cols pad_left1"> <input class="button" type="submit" name="search" value="Search"/></td> </div>
               </div> <br>
             </div>
           </form>
