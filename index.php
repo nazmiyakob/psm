@@ -24,7 +24,7 @@
   <div class="main">
     <!-- header -->
     <header>
-      <img src="../images/logo_img.png">
+      <img src="title.jpg">
       <div class="wrapper">
         <ul id="icons">
           <li><a href="#" class="normaltip"><img src="images/icon1.jpg" alt=""></a></li>
@@ -46,90 +46,75 @@
   </div>
 </div>
 <!-- content -->
-<div class="body2">
+<div class="body2" style="height: 100%;">
   <div class="main">
     <section id="content">
       <div class="wrapper">
         <article class="col1">
 
           <div id="slider">
-            <img src="images/img1.jpg" height="376" width="683" alt="" title="<strong>One storey house <a href=''>Read more</a></span>">
-            <img src="images/img2.jpg" height="376" width="683" alt="" title="<strong>Two storey house <a href=''>Read more</a></span>">
-            <img src="images/img3.jpg" height="376" width="683" alt="" title="<strong>Appartment <a href=''>Read more</a></span>">
+            <img src="images/img1.jpg" height="376" width="683" alt="" title="<strong>One storey house <a href='search.php'>See more</a></span>">
+            <img src="images/img2.jpg" height="376" width="683" alt="" title="<strong>Two storey house <a href='search.php'>See more</a></span>">
+            <img src="images/img3.jpg" height="376" width="683" alt="" title="<strong>Appartment <a href='search.php'>See more</a></span>">
           </div>
 
         </article>
         <article class="col2">
-          <form id="form_1" action="#" method="post">
+          <form id="form_1" action="search.php" method="post">
             <div class="pad1">
               <h3>Find Your Property</h3>
               <div class="row"> Search :<br>
-                <input type="text" class="input">
+                <input type="text" class="input" name="seacrhdata">
               </div>
               <div class="row_select"> State : <br>
-                <select>
-                  <option>&nbsp;</option>
-                  <option>Melaka</option>
-                  <option>Johor</option>
-                  <option>Negeri Sembilan</option>
-                  <option>Selangor</option>
-                </select>
+                <select name="res_state">
+                    <option>&nbsp;</option>
+                    <option value="Melaka">Melaka</option>
+                    <option value="Johor">Johor</option>
+                    <option value="Negeri Sembilan">Negeri Sembilan</option>
+                    <option value="Selangor">Selangor</option>
+                  </select>
               </div>
               <div class="row_select"> Cities : <br>
-                <select>
-                  <option>&nbsp;</option>
-                  <option>...</option>
-                  <option>...</option>
-                  <option>...</option>
-                  <option>...</option>
-                </select>
+                  <select name="res_cities">
+                    <option>&nbsp;</option>
+                    <option value="Ayer Keroh">Ayer Keroh</option>
+                    <option value="Durian Tunggal">Durian Tunggal</option>
+                    <option value="Batu Berendam">Batu Berendam</option>
+                    <option value="Jasin">Jasin</option>
+                  </select>
               </div>
               <div class="row_select"> Residential Type : <br>
-                <select>
-                  <option>&nbsp;</option>
-                  <option>Apartment</option>
-                  <option>Flat</option>
-                  <option>1-Sty Terrace</option>
-                  <option>2-Sty Terrace</option>
-                  <option>Town House</option>
-                </select>
+               <select name="residential_type">
+                    <option>&nbsp;</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Flat">Flat</option>
+                    <option value="1-Sty Terrace">1-Sty Terrace</option>
+                    <option value="2-Sty Terrace">2-Sty Terrace</option>
+                    <option value="Town">Town House</option>
+                  </select>
+              </div>
+              <div class="row_select"> Furnishing : <br>
+                  <select name="furnishing">
+                    <option>&nbsp;</option>
+                    <option value="Fully Furnished">Fully Furnished</option>
+                    <option value="Partially Furnished">Partially Furnished</option>
+                    <option value="Not Furnished">Not Furnished</option>
+                  </select>
+                </div>
+              <div class="row_select"> Price (below than): <br>
+                  <select>
+                    <option>&nbsp;</option>
+                    <option value="200">RM 200</option>
+                    <option value="200">RM 400</option>
+                    <option value="200">RM 600</option>
+                    <option value="200">RM 800</option>
+                    <option value="200">RM 1000</option>
+                    <option value="200">RM 1200</option>
+                  </select>
               </div>
               <div class="row_select">
-                <div class="cols"> Min Price : <br>
-                  <select>
-                    <option>&nbsp;</option>
-                    <option>200</option>
-                    <option>400</option>
-                    <option>600</option>
-                    <option>800</option>
-                    <option>1000</option>
-                    <option>1200</option>
-                  </select>
-                </div>
-                <div class="cols pad_left1"> Max Price : <br>
-                  <select>
-                    <option>&nbsp;</option>
-                    <option>200</option>
-                    <option>400</option>
-                    <option>600</option>
-                    <option>800</option>
-                    <option>1000</option>
-                    <option>1200</option>
-                  </select>
-                </div>
-              </div>
-              <div class="row_select">
-                <div class="cols"> Bedroom(s):<br>
-                  <select>
-                    <option>&nbsp;</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-                <div class="cols pad_left1"> <a href="#" class="button">Search</a> </div>
+                <input class="button" type="submit" name="search" value="Search">
               </div> <br>
             </div>
           </form>

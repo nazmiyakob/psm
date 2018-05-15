@@ -24,7 +24,7 @@
   <div class="main">
     <!-- header -->
     <header>
-      <h1><a href="index.php" id="logo"></a></h1>
+      <img src="title.jpg">
       <div class="wrapper">
         <ul id="icons">
           <li><a href="#" class="normaltip"><img src="images/icon1.jpg" alt=""></a></li>
@@ -37,6 +37,7 @@
           <li><a href="admin.php">Home</a></li>
           <li id="menu_active"><a href="approvement.php">Approvement</a></li>
           <li class="menu_active"><a href="report.php">Report</a></li>
+          <li class="menu_active"><a href="register.php">Register</a></li>
           <li class="endr" ><a href="logout.php">LogOut</a></li>
         </ul>
       </nav>
@@ -45,11 +46,12 @@
   </div>
 </div>
 <!-- content -->
-<div class="body2">
+<div class="body2" style="height: 100%;">
   <div class="main">
     <section id="content">
-      <div class="wrapper">
+      <div class="wrapper" style="height: 100%;">
         <article>
+          <form id="form_1" action="#" method="post">
             <div class="pad1">
               <?php 
                 mysql_connect("localhost","root","");
@@ -57,7 +59,8 @@
                 
                 $query1=mysql_query("SELECT * FROM residential Where status='PENDING'");
 
-                echo "<p><br>
+                echo "<h4><center> PENDING REQUEST </center></h4>
+                <p><br>
                 <table border='10' text-align='center' width='100%'>
                 <tr>
                   <th><center><h3> Details </center></th>
@@ -131,6 +134,8 @@
 
 
 
+        </div>
+          </form>
         </article>
       </div>
     </section>

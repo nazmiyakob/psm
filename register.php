@@ -34,11 +34,11 @@
       </div>
       <nav>
         <ul id="menu">
-          <li><a href="index.php">Home</a></li>
-          <li><a href="renting.php">Renting</a></li>
-          <li><a href="selling.php">Selling</a></li>
-          <li><a href="upload.php">Upload</a></li>
-          <li class="end"><a href="account.php">Login</a></li>
+          <li><a href="admin.php">Home</a></li>
+          <li class="menu_active"><a href="approvement.php">Approvement</a></li>
+          <li class="menu_active"><a href="report.php">Report</a></li>
+          <li class="menu_active" id="menu_active"><a href="register.php">Register</a></li>
+          <li class="endr" ><a href="logout.php">LogOut</a></li>
         </ul>
       </nav>
     </header>
@@ -46,42 +46,41 @@
   </div>
 </div>
 <!-- content -->
-<div class="body2">
-
-      <?php
-        $residential_id = $_POST['residential_id'];
-        echo "<h1>$residential_id</h1>";
-      ?>
-
+<div class="body2" style="height: 100%;">
   <div class="main">
     <section id="content">
-      <div class="wrapper" style="height: 100%;">
+      <div class="wrapper">
         <article class="col2">
-          <form id="form_1" action="" method="post">
+              <article class="col2">
+          <form id="form_1" method="post">
             <div class="pad1">
-              <h3>Booking</h3>
-              <div class="row"> Full Name :<br>
-                <input type="text" class="input" name="book_fullname">
-              </div>
+              <h3>Register</h3>
               <div class="row"> IC Number :<br>
-                <input type="text" class="input" name="book_ic_no">
+                <input type="text" class="input" name="ic_no">
+              </div>
+              <div class="row"> Full Name :<br>
+                <input type="text" class="input" name="fullname">
+              </div>
+              <div class="row"> Password :<br>
+                <input type="password" class="input" name="password">
               </div>
               <div class="row"> Email :<br>
-                <input type="text" class="input" name="book_email">
+                <input type="text" class="input" name="email">
               </div>
               <div class="row"> Phone Number :<br>
-                <input type="text" class="input" name="book_phone_num">
+                <input type="text" class="input" name="phone_number">
               </div>
-
-              <input type="hidden" class="input" name="residential_id" value="<?php echo $residential_id; ?>">
+              <input type='hidden' name='user_type' value="Admin">
 
               <div class="row_select">
                 <div class="cols pad_left1">
-                <input type="submit" name="btn_book" value="Booking" class="button">
+                <input type="submit" name="btn_register" value="Register" class="button">
               </div>
               </div> <br>
             </div>
           </form>
+        </article>
+            </div>
       </div>
     </section>
   </div>
@@ -124,47 +123,43 @@ $(window).load(function () {
 </script>
 </body>
 </html>
-
 <?php
-        
-if(isset($_POST['btn_book']))
+if(isset($_POST['btn_register']))
 {
 
   $username = "root";
   $password = "";
   $hostname = "localhost";
-  $residential_id = $_POST['residential_id'];
 
 
   $con = mysql_connect($hostname, $username, $password) or die("Could not connect to database");
 
   mysql_select_db("e_rented_house", $con); 
 
-    //$query=mysql_query("SELECT * FROM residential WHERE residential_id='".$residential_id."'");
-    //$numrows=mysql_num_rows($query);
-    // if($numrows==0)
-    // {
-      $sql = "INSERT INTO booking (residential_id, book_fullname, book_ic_no, book_email, book_phone_num) VALUES('$residential_id','$_POST[book_fullname]', '$_POST[book_ic_no]', '$_POST[book_email]', '$_POST[book_phone_num]')";
+    $query=mysql_query("SELECT * FROM user");
+    $numrows=mysql_num_rows($query);
+    if($numrows)
+    {
+      $sql = "INSERT INTO user (ic_no, fullname, password, email, phone_number, user_type) VALUES('$_POST[ic_no]', '$_POST[fullname]', '$_POST[password]', '$_POST[email]', '$_POST[phone_number]', '$_POST[user_type]')";
       
       $result=mysql_query($sql);
       
-        if($result)
-        {
-          echo '<script language = "JavaScript">alert("YOUR REQUEST WILL BE PROCESS.")</script>';
-          // print '<meta http-equiv="refresh" content="0;URL=index.php">';
-        }
-        else
-        {
-          echo '<script language = "JavaScript">alert("ERROR")</script>';
-          // print '<meta http-equiv="refresh" content="0;URL=index.php">';
-        }
-    // }
-
-    // else
-    // {
-    //   echo '<script language = "JavaScript">alert("NO QUERY")</script>';
-    //   print '<meta http-equiv="refresh" content="0;URL=index.php">';
-    // }
+      if($result)
+      {
+        echo '<script language = "JavaScript">alert("ADMIN HAVE BEEN REGISTER")</script>';
+        print '<meta http-equiv="refresh" content="0;URL=register.php">';
+      }
+      else
+      {
+        echo '<script language = "JavaScript">alert("DATA NOT REGISTER")</script>';
+        print '<meta http-equiv="refresh" content="0;URL=register.php">';
+      }
+    }
+    else
+    {
+      echo '<script language = "JavaScript">alert("NO QUERY")</script>';
+      print '<meta http-equiv="refresh" content="0;URL=register.php">';
+    }
     
   
 }

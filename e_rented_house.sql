@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2018 at 05:01 PM
+-- Generation Time: May 15, 2018 at 02:37 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -42,9 +42,9 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`booking_id`, `residential_id`, `book_fullname`, `book_ic_no`, `book_email`, `book_phone_num`) VALUES
-(12, 0, 'Meor Syarifuddin', 940116142005, 'meor_syarifuddin@gmail.com', 136625486),
 (16, 2, 'Meor Syarifuddin', 940116142005, 'meor_syarifuddin@gmail.com', 136625486),
-(17, 4, 'Fitri Amri', 940313025613, 'fit3amri@gmail.com', 142460635);
+(17, 4, 'Fitri Amri', 940313025613, 'fit3amri@gmail.com', 142460635),
+(18, 3, 'Othman', 941230062113, 'othman94@gmail.com', 126648521);
 
 -- --------------------------------------------------------
 
@@ -48430,7 +48430,8 @@ INSERT INTO `residential` (`residential_id`, `residential_type`, `residential_pr
 (2, '2-Sty Terrace', 2000, '', 'test2', 2003, 'Not Furnishing', 'Negeri Sembilan', 'Batu Berendam', 'Selling', 'Accept'),
 (3, '1-Sty Terrace', 23000, '', 'aaa', 2000, 'Partially Furnishing', 'Johor', 'Batu Berendam', 'Selling', 'Accept'),
 (4, 'Apartment', 600, '', 'Test2', 2012, 'Not Furnishing', 'Melaka', 'Durian Tunggal', 'Renting', 'Accept'),
-(5, 'Apartment', 600, '', 'Test', 2012, 'Not Furnished', 'Melaka', 'Durian Tunggal', 'Renting', 'Pending');
+(5, 'Apartment', 600, '', 'Test', 2012, 'Not Furnished', 'Melaka', 'Durian Tunggal', 'Renting', 'Accept'),
+(6, 'Flat', 550, '', 'Near Melacca Central and Kipmart', 2012, 'Not Furnished', 'Melaka', 'Batu Berendam', 'Renting', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -52591,7 +52592,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ic_no`, `fullname`, `password`, `email`, `phone_number`, `user_type`) VALUES
-(941016016117, 'Mohd Nazmi Syarifuddin Bin Mohd Yakob', 'abc123', 'nazmiyakob1994@gmail.com', 136689218, 'Admin');
+(941016016117, 'Mohd Nazmi Syarifuddin Bin Mohd Yakob', 'abc123', 'nazmiyakob1994@gmail.com', 136689218, 'Admin'),
+(941212085167, 'Muhammad Azan Bin Kamarul Azhar', 'abc123', 'azan.azhar@gmail.com', 136789123, 'Admin');
 
 --
 -- Indexes for dumped tables
@@ -52635,7 +52637,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `booking_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `booking_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `cities`
@@ -52647,7 +52649,7 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `residential`
 --
 ALTER TABLE `residential`
-  MODIFY `residential_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `residential_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `states`

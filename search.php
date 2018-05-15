@@ -24,7 +24,7 @@
   <div class="main">
     <!-- header -->
     <header>
-      <h1><a href="index.php" id="logo"></a></h1>
+      <img src="title.jpg">
       <div class="wrapper">
         <ul id="icons">
           <li><a href="#" class="normaltip"><img src="images/icon1.jpg" alt=""></a></li>
@@ -70,9 +70,9 @@
         <article class="col1">
 
           <div id="slider">
-            <img src="images/img1.jpg" height="376" width="683" alt="" title="<strong>One storey house <a href=''>Read more</a></span>">
-            <img src="images/img2.jpg" height="376" width="683" alt="" title="<strong>Two storey house <a href=''>Read more</a></span>">
-            <img src="images/img3.jpg" height="376" width="683" alt="" title="<strong>Appartment <a href=''>Read more</a></span>">
+            <img src="images/img1.jpg" height="376" width="683" alt="" title="<strong>One storey house <a href='search.php'>See more</a></span>">
+            <img src="images/img2.jpg" height="376" width="683" alt="" title="<strong>Two storey house <a href='search.php'>See more</a></span>">
+            <img src="images/img3.jpg" height="376" width="683" alt="" title="<strong>Appartment <a href='search.php'>See more</a></span>">
           </div>
 
         </article>
@@ -131,17 +131,7 @@
                   </select>
               </div>
               <div class="row_select">
-                <div class="cols"> Bedroom(s):<br>
-                  <select>
-                    <option>&nbsp;</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-                <div class="cols pad_left1"> <input class="button" type="submit" name="search" value="Search"/></td> </div>
+                <input class="button" type="submit" name="search" value="Search">
               </div> <br>
             </div>
           </form>
@@ -152,9 +142,10 @@
 </div>
 
 <div class="body3">
-  <div class="main">
+  <div class="main" style="height: 100%;">
     
       <?php
+        error_reporting(0); 
 
         if(isset($_POST['search']))
         {

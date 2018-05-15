@@ -24,7 +24,7 @@
   <div class="main">
     <!-- header -->
     <header>
-      <h1><a href="index.php" id="logo"></a></h1>
+      <img src="title.jpg">
       <div class="wrapper">
         <ul id="icons">
           <li><a href="#" class="normaltip"><img src="images/icon1.jpg" alt=""></a></li>
@@ -47,7 +47,7 @@
 </div>
 
 <!-- content -->
-<div class="body2">
+<div class="body2" style="height: 100%;">
   <div class="main">
     <section id="content">
       <div class="wrapper">
@@ -76,8 +76,7 @@
                 </div>
               </div>
               
-              <div class="row_select">
-                <div class="cols"> Residential Type <br>
+                <div class="row_select"> Residential Type <br>
                   <select name="residential_type" required>
                     <option value="">&nbsp;</option>
                     <option value="Apartment">Apartment</option>
@@ -87,7 +86,9 @@
                     <option value="Town">Town House</option>
                   </select>
                 </div>
-                <div class="cols pad_left1"> Furnishing : <br>
+
+              <div class="row_select">
+                <div class="cols"> Furnishing : <br>
                   <select name="furnishing" required>
                     <option value="">&nbsp;</option>
                     <option value="Fully Furnished">Fully Furnished</option>
@@ -95,6 +96,15 @@
                     <option value="Not Furnished">Not Furnished</option>
                   </select>
                 </div>
+
+                <div class="cols pad_left1"> Sales Type : <br>
+                  <select name="sales" required>
+                    <option value="">&nbsp;</option>
+                    <option value="Renting">Renting</option>
+                    <option value="Selling">Selling</option>
+                  </select>
+                </div>
+              </div>
 
               <div class="row_select"> Year of Residential : <br>
                   <input type="number" name="residential_year" required>
@@ -105,7 +115,7 @@
               </div>
 
               <div class="row_select"> Residential Description : <br>  
-                <textarea rows="4" cols="30" name="residential_description" required></textarea>
+                <textarea rows="4" cols="28" name="residential_description" required></textarea>
               </div>
               
               <div class="row_select">
@@ -189,7 +199,7 @@ if(isset($_POST['btn_submit']))
     $query=mysql_query("SELECT * FROM residential");
     $numrows=mysql_num_rows($query);
 
-    $sql = "INSERT INTO residential (residential_id, res_state, res_cities, residential_type, furnishing, residential_year, residential_price, residential_description) VALUES('$residential_id', '$_POST[res_state]', '$_POST[res_cities]', '$_POST[residential_type]', '$_POST[furnishing]', '$_POST[residential_year]', '$_POST[residential_price]', '$_POST[residential_description]')";
+    $sql = "INSERT INTO residential (residential_id, res_state, res_cities, residential_type, furnishing, sales, residential_year, residential_price, residential_description) VALUES('$residential_id', '$_POST[res_state]', '$_POST[res_cities]', '$_POST[residential_type]', '$_POST[furnishing]', '$_POST[sales]', '$_POST[residential_year]', '$_POST[residential_price]', '$_POST[residential_description]')";
       
       $result=mysql_query($sql);
       

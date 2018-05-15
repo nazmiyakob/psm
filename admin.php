@@ -24,7 +24,7 @@
   <div class="main">
     <!-- header -->
     <header>
-      <h1><a href="index.php" id="logo"></a></h1>
+      <img src="title.jpg">
       <div class="wrapper">
         <ul id="icons">
           <li><a href="#" class="normaltip"><img src="images/icon1.jpg" alt=""></a></li>
@@ -37,6 +37,7 @@
           <li id="menu_active"><a href="admin.php">Home</a></li>
           <li class="menu_active"><a href="approvement.php">Approvement</a></li>
           <li class="menu_active"><a href="report.php">Report</a></li>
+          <li class="menu_active"><a href="register.php">Register</a></li>
           <li class="endr" ><a href="logout.php">LogOut</a></li>
         </ul>
       </nav>

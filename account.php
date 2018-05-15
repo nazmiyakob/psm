@@ -24,7 +24,7 @@
   <div class="main">
     <!-- header -->
     <header>
-      <h1><a href="index.php" id="logo"></a></h1>
+      <img src="title.jpg">
       <div class="wrapper">
         <ul id="icons">
           <li><a href="#" class="normaltip"><img src="images/icon1.jpg" alt=""></a></li>
@@ -46,45 +46,17 @@
   </div>
 </div>
 <!-- content -->
-<div class="body2">
+<div class="body2" style="height: 100%;">
   <div class="main">
     <section id="content">
       <div class="wrapper">
-        <article class="col2">
-          <form id="form_1" action="#" method="post">
-            <div class="pad1">
-              <h3>Register</h3>
-              <div class="row"> IC Number :<br>
-                <input type="text" class="input" name="ic_no">
-              </div>
-              <div class="row"> Full Name :<br>
-                <input type="text" class="input" name="fullname">
-              </div>
-              <div class="row"> Password :<br>
-                <input type="password" class="input" name="password">
-              </div>
-              <div class="row"> Email :<br>
-                <input type="text" class="input" name="email">
-              </div>
-              <div class="row"> Phone Number :<br>
-                <input type="text" class="input" name="phone_number">
-              </div>
-
-              <div class="row_select">
-                <div class="cols pad_left1">
-                <input type="submit" name="btn_register" value="Register" class="button">
-              </div>
-              </div> <br>
-            </div>
-          </form>
-        </article>
         <article class="col2">
           <form id="form_1" action="authenticate.php" method="post">
             <div class="pad1">
               <h3>Log In</h3>
               <div class="row"> IC Number :<br>
                 <input type="text" class="input" name="ic_no">
-              </div>
+              </div><p>
               <div class="row"> Password :<br>
                 <input type="password" class="input" name="password">
               
