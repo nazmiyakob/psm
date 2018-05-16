@@ -144,7 +144,7 @@
 
 <div class="body3">
   <div class="main">
-    <h2>Remodeling Rooms</h2>
+    <center><h2>Renting</h2></center>
 
     <div class="wrapper pad_bot3">
       <?php 
@@ -178,7 +178,7 @@
           echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
           echo "<input type='hidden' name='residential_id' value=" . $query2['residential_id'] . ">";
           echo "<td align='center'>
-                  <button type='submit' class='button' span='2' >BUY</button></form>";
+                  <button type='submit' class='button' span='2' >RENT</button></form>";
           echo "</td>";
           echo "</td>";
           echo "</tr>";

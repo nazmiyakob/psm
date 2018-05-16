@@ -45,11 +45,11 @@
 </div>
 <!-- content -->
 <div class="body2" style="height: 100%;">
-  <div class="main">
-    <section id="content">
-      <div class="wrapper" style="height: 100%;">
+  <div class="main" style="height: 100%;">
+    <section id="content" style="height: 100%;">
+      <div class="wrapper">
         <article>
-          <form id="form_1" action="#" method="post">
+          <form id="" action="#" method="post">
             <div class="pad1">
               <?php 
                 mysql_connect("localhost","root","");
@@ -70,7 +70,7 @@
                 
                 $query1=mysql_query("SELECT b.*, r.* FROM booking b, residential r where b.residential_id=r.residential_id");
 
-                echo "<h4><center> BOOKING REQUEST </center></h4>
+                echo "<h2><center> BOOKING REQUEST </center></h2>
                 <p><br>
                 <table border='10' text-align='center' width='100%'> 
                 <tr>

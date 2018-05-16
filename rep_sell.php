@@ -76,52 +76,10 @@
 
               ?>
 
-
-          <center><h2>Renting</h2></center>
-          <canvas id="chartRenting" width="700" height="300"></canvas>
-            <?php 
-              $sql1 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where res_state ='Johor' and sales='Renting'");
-              $query1=mysql_fetch_array($sql1);
-
-              $sql2 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where res_state ='Melaka' and sales='Renting'");
-              $query2=mysql_fetch_array($sql2);
-
-              $sql3 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where res_state ='Negeri Sembilan' and sales='Renting'");
-              $query3=mysql_fetch_array($sql3);
-  
-              $sql4 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where res_state ='Selangor' and sales='Renting'");
-              $query4=mysql_fetch_array($sql4);
-
-              $sql5 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where res_state ='Kuala Lumpur' and sales='Renting'");
-              $query5=mysql_fetch_array($sql5);
-
-              $sql6 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where res_state ='Pahang' and sales='Renting'");
-              $query6=mysql_fetch_array($sql6); 
-
-              $sql7 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where res_state ='Terengganu' and sales='Renting'");
-              $query7=mysql_fetch_array($sql7);
-
-              $sql8 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where res_state ='Penang' and sales='Renting'");
-              $query8=mysql_fetch_array($sql8);
-
-              $sql9 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where res_state ='Perak' and sales='Renting'");
-              $query9=mysql_fetch_array($sql9);
-
-              $sql10 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where res_state ='Kedah' and sales='Renting'");
-              $query10=mysql_fetch_array($sql10);
-
-              $sql11 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where res_state ='Kelantan' and sales='Renting'");
-              $query11=mysql_fetch_array($sql11);
-
-              $sql12 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where res_state ='Perlis' and sales='Renting'");
-              $query12=mysql_fetch_array($sql12);
-
-              $sql13 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where res_state ='Sabah' and sales='Renting'");
-              $query13=mysql_fetch_array($sql13);
-
-              $sql14 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where res_state ='Sarawak' and sales='Renting'");
-              $query14=mysql_fetch_array($sql14);
-            ?>
+              <center>
+                <a href="rep_sell.php"><input type="button" name="Selling" value="Selling" class="button"></a>
+                <a href="rep_rent.php"><input type="button" name="Renting" value="Renting" class="button"></a>
+              </center>
 
             <center><h2>Selling</h2></center>
             <canvas id="chartSelling" width="700" height="300"></canvas>
@@ -177,40 +135,6 @@
       <script>
         var ctx = document.getElementById("chartSelling");
         var chartSelling = new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: ["Johor","Melaka","Negeri Sembilan","Selangor","Kuala Lumpur","Pahang","Terengganu","Penang","Perak","Kedah","Kelantan","Perlis","Sabah","Sarawak"],
-            datasets: [{
-              label: 'No of Booking',
-              data: [<?php echo $query101[0];?>,<?php echo $query102[0];?>,<?php echo $query103[0];?>,<?php echo $query104[0];?>,
-                    <?php echo $query105[0];?>,<?php echo $query106[0];?>,<?php echo $query107[0];?>,<?php echo $query108[0];?>,
-                    <?php echo $query109[0];?>,<?php echo $query110[0];?>,<?php echo $query111[0];?>,<?php echo $query112[0];?>,
-                    <?php echo $query113[0];?>,<?php echo $query114[0];?>
-                
-                ],
-              backgroundColor: [
-                 "#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF",
-                 
-              ],
-              borderWidth: 5
-            }]
-          },
-          options: {
-            scales: {
-              yAxes: [{
-                ticks: {
-                  beginAtZero:true
-                  
-                }
-              }]
-            }
-          }
-        });
-      </script>
-
-      <script>
-        var ctx = document.getElementById("chartRenting");
-        var chartRenting = new Chart(ctx, {
           type: 'bar',
           data: {
             labels: ["Johor","Melaka","Negeri Sembilan","Selangor","Kuala Lumpur","Pahang","Terengganu","Penang","Perak","Kedah","Kelantan","Perlis","Sabah","Sarawak"],

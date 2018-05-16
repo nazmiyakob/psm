@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2018 at 02:37 AM
+-- Generation Time: May 16, 2018 at 05:02 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -44,7 +44,46 @@ CREATE TABLE `booking` (
 INSERT INTO `booking` (`booking_id`, `residential_id`, `book_fullname`, `book_ic_no`, `book_email`, `book_phone_num`) VALUES
 (16, 2, 'Meor Syarifuddin', 940116142005, 'meor_syarifuddin@gmail.com', 136625486),
 (17, 4, 'Fitri Amri', 940313025613, 'fit3amri@gmail.com', 142460635),
-(18, 3, 'Othman', 941230062113, 'othman94@gmail.com', 126648521);
+(18, 3, 'Othman', 941230062113, 'othman94@gmail.com', 126648521),
+(19, 4, 'Sarah Syamimi', 940525145924, 'sarah.mimi@gmail.com', 176048995),
+(20, 8, 'Amirul Ashraf', 641015062015, 'amirul.ash@gmail.com', 142359871),
+(21, 11, 'Abdul Adzim', 841022145113, 'adzimabd@gmail.com', 195524157),
+(22, 7, 'Wainey', 871223032564, 'wainey@gmail.com', 164895623),
+(23, 14, 'Zul Azwan', 941112055001, 'azwan@gmail.com', 177882167),
+(24, 19, 'Liyana Yakob', 970919015124, 'liyana@gmail.com`', 137412250),
+(25, 3, 'Hasif Safiuddin', 861030012365, 'hasif@gmail.com', 147584116),
+(26, 3, 'Zainora Samin', 761128015684, 'zainora@yahoo.com', 137654302),
+(27, 4, 'Meor Syarifuddin', 940116142005, 'meor_syarifuddin@gmail.com', 136625486),
+(28, 5, 'Sarah Syamimi', 940525145924, 'sarah.mimi@gmail.com', 176048995),
+(29, 5, 'Meor Syarifuddin', 940116142005, 'meor_syarifuddin@gmail.com', 136625486),
+(31, 5, 'Fitri Amri', 940313025613, 'fit3amri@gmail.com', 142460635),
+(32, 14, 'Asyraf Ibrahim', 790612145487, 'asyraf@gmail.com', 1987459225),
+(33, 14, 'Teo Dickson', 95070316295, 'teo.dickson@gmail.com', 147215936),
+(34, 14, 'Zaim Ariff', 891115016511, 'zaim@gmail.com', 177895526),
+(35, 12, 'Syukry', 750301116181, 'syukry12@gmail.com', 122265478),
+(36, 21, 'aqilul naim', 880106126551, 'naim@yahoo.com', 175564820),
+(37, 21, 'imam mukhsineen', 700220013201, 'imam@yahoo.com', 168974330),
+(38, 19, 'faris ramlee', 920920092001, 'faris@yahoo.com', 124512661),
+(39, 19, 'Fadzli', 741029053221, 'fadzli32@yahoo.com', 137454412),
+(40, 31, 'Azim zaharin', 931230082141, 'azim@yahoo.com', 138451230),
+(41, 31, 'qistina ahmad', 770415120224, 'qistina@yahoo.com', 186541225),
+(42, 17, 'Fuad Jazari', 910512068755, 'fuad93@yahoo.com', 1151236450),
+(43, 17, 'ahmad maslan', 651026146851, 'maslan@gmail.com', 164562258),
+(44, 25, 'Adliah Nawi', 940213081552, 'adilahnawi@gmail.com', 185489956),
+(45, 25, 'shahdan ariffin', 940923085411, 'shadanar@gmail.com', 183652115),
+(46, 25, 'Fazrul abdullah', 710318064541, 'fazz@gmail.com', 174851220),
+(47, 23, 'Othman Ali', 821205071521, 'mantoba@gmail.com', 126548841),
+(48, 24, 'Siddiq', 830315123117, 'siddiq@yahoo.com', 123214486),
+(49, 24, 'Syahida', 930517068452, 'syahida@gmail.com', 13654771),
+(50, 3, 'Hizlan Badzali', 780322014775, 'hizlan@gmail.com', 136789415),
+(51, 3, 'Jafri Samin', 791201012117, 'jeff12@gmail.com', 137089951),
+(52, 3, 'Asmawati', 730419018458, 'asmawati@yahoo.com', 137089654),
+(53, 3, 'Yusuf Iskandar', 940106019553, 'yusufiss@yahoo.com', 12895541),
+(54, 3, 'Hadif Mohd', 861215015141, 'hadif@yahoo.com', 142156558),
+(55, 9, 'zarif azri', 840215069875, 'zarif', 136625486),
+(56, 9, 'Meor Syarifuddin', 940313025613, 'meor_syarifuddin@gmail.com', 142359871),
+(57, 9, 'Sarah Syamimi', 641015062015, 'sarah.mimi@gmail.com', 164895623),
+(58, 28, 'Azri nazmi', 891005123581, 'azri@yahoo.com', 135487740);
 
 -- --------------------------------------------------------
 
@@ -48412,7 +48451,7 @@ CREATE TABLE `residential` (
   `residential_type` varchar(20) NOT NULL,
   `residential_price` int(5) NOT NULL,
   `residential_img` longblob NOT NULL,
-  `residential_description` varchar(100) NOT NULL,
+  `residential_description` varchar(1000) NOT NULL,
   `residential_year` int(4) NOT NULL,
   `furnishing` varchar(50) NOT NULL,
   `res_state` varchar(50) NOT NULL,
@@ -48426,12 +48465,37 @@ CREATE TABLE `residential` (
 --
 
 INSERT INTO `residential` (`residential_id`, `residential_type`, `residential_price`, `residential_img`, `residential_description`, `residential_year`, `furnishing`, `res_state`, `res_cities`, `sales`, `status`) VALUES
-(1, 'Apartment', 20000, '', 'test', 2003, 'Partially Furnishing', 'Melaka', 'Durian Tunggal', 'Selling', 'Reject'),
-(2, '2-Sty Terrace', 2000, '', 'test2', 2003, 'Not Furnishing', 'Negeri Sembilan', 'Batu Berendam', 'Selling', 'Accept'),
-(3, '1-Sty Terrace', 23000, '', 'aaa', 2000, 'Partially Furnishing', 'Johor', 'Batu Berendam', 'Selling', 'Accept'),
-(4, 'Apartment', 600, '', 'Test2', 2012, 'Not Furnishing', 'Melaka', 'Durian Tunggal', 'Renting', 'Accept'),
-(5, 'Apartment', 600, '', 'Test', 2012, 'Not Furnished', 'Melaka', 'Durian Tunggal', 'Renting', 'Accept'),
-(6, 'Flat', 550, '', 'Near Melacca Central and Kipmart', 2012, 'Not Furnished', 'Melaka', 'Batu Berendam', 'Renting', 'Pending');
+(1, 'Apartment', 20000, '', 'got refrigerator, and television.', 2003, 'Partially Furnishing', 'Selangor', 'Bangi', 'Selling', 'Reject'),
+(2, '2-Sty Terrace', 250000, '', 'Close to shopping center\r\n4 bedroom', 2003, 'Not Furnishing', 'Negeri Sembilan', 'Nilai', 'Selling', 'Accept'),
+(3, '1-Sty Terrace', 56000, '', 'close to Kipmart and town', 2000, 'Partially Furnishing', 'Johor', 'Kota Tinggi', 'Selling', 'Accept'),
+(4, 'Apartment', 600, '', 'prefer student', 2012, 'Not Furnishing', 'Melaka', 'Durian Tunggal', 'Renting', 'Accept'),
+(5, 'Apartment', 700, '', 'for student', 2012, 'Not Furnished', 'Melaka', 'Ayer Keroh', 'Renting', 'Accept'),
+(6, 'Flat', 50000, '', 'Near Melacca Central and Kipmart', 2012, 'Not Furnished', 'Melaka', 'Batu Berendam', 'Selling', 'Pending'),
+(7, 'Flat', 450, '', 'Have:\r\n\r\nwashing Machine\r\n2 bed\r\ngot 3 bedroom', 2018, 'Partially Furnished', 'Sarawak', 'Bintulu', 'Renting', 'Accept'),
+(8, '1-Sty Terrace', 850, '', 'prefer malay', 2015, 'Not Furnished', 'Sabah', 'Kota Kinabalu', 'Renting', 'Accept'),
+(9, '1-Sty Terrace', 26000, '', 'Got new house', 2015, 'Fully Furnished', 'Perlis', 'Perlis', 'Selling', 'Accept'),
+(10, 'Town', 15000, '', 'No one there', 2013, 'Not Furnished', 'Penang', 'Bandar Tanjung Bungah', 'Selling', 'Accept'),
+(11, 'Town', 500, '', 'we have washing machine and refrigerator', 2005, 'Partially Furnished', 'Kelantan', 'Pasir Mas', 'Renting', 'Accept'),
+(12, '1-Sty Terrace', 24000, '', 'Near Stadium', 2011, 'Not Furnished', 'Kelantan', 'Kota Bahru', 'Selling', 'Accept'),
+(13, 'Flat', 900, '', 'Near Shopping Compleks', 2000, 'Not Furnished', 'Kedah', 'Sungai Petani', 'Renting', 'Accept'),
+(14, 'Town', 670, '', 'we have washing machine and TV\r\n', 2017, 'Partially Furnished', 'Pahang', 'Rompin', 'Renting', 'Accept'),
+(15, '1-Sty Terrace', 25000, '', 'were moving out', 2003, 'Not Furnished', 'Perak', 'Manjung', 'Selling', 'Accept'),
+(16, 'Apartment', 16000, '', 'Near Shopping Mall', 2014, 'Fully Furnished', 'Kuala Lumpur', 'Putrajaya', 'Selling', 'Accept'),
+(17, 'Apartment', 650, '', '1 room to rent. prefer Malay.\r\n1 room = 3 person', 2005, 'Fully Furnished', 'Kuala Lumpur', 'Cheras', 'Renting', 'Accept'),
+(18, 'Flat', 10000, '', 'Moving new house', 2002, 'Not Furnished', 'Terengganu', 'Dungun', 'Selling', 'Accept'),
+(19, 'Flat', 700, '', 'near Town and Shopping Mall', 2016, 'Not Furnished', 'Johor', 'Johor Bahru', 'Renting', 'Accept'),
+(20, '1-Sty Terrace', 32000, '', 'need money', 2008, 'Not Furnished', 'Kedah', 'Alor Setar', 'Selling', 'Accept'),
+(21, 'Flat', 500, '', '2 bedroom', 2003, 'Partially Furnishing', 'Negeri Sembilan', 'Seremban', 'Renting', 'Accept'),
+(22, 'Town', 16700, '', 'we have washing machine and TV\r\n', 2011, 'Not Furnished', 'Pahang', 'Kuantan', 'Selling', 'Accept'),
+(23, 'Flat', 800, '', 'prefer chinese', 2012, 'Not Furnished', 'Penang', 'Bandar Tanjung Bungah', 'Renting', 'Accept'),
+(24, 'Flat', 650, '', 'Prefer Student', 2004, 'Fully Furnished', 'Perak', 'Tanjung Malim', 'Renting', 'Accept'),
+(25, 'Town', 500, '', 'Moving new house', 2002, 'Not Furnished', 'Terengganu', 'Kuala Terengganu', 'Renting', 'Accept'),
+(26, '1-Sty Terrace', 400, '', 'new tenant', 2018, 'Fully Furnished', 'Perlis', 'Perlis', 'Renting', 'Accept'),
+(27, '2-Sty Terrace', 600, '', 'find new tenant', 2018, 'Not Furnished', 'Perlis', 'Perlis', 'Renting', 'Accept'),
+(28, 'Town', 6000, '', 'Moved', 2017, 'Not Furnished', 'Sabah', 'Tawau', 'Selling', 'Accept'),
+(29, '2-Sty Terrace', 450, '', 'not stay here anymore', 2018, 'Not Furnished', 'Sarawak', 'Sibu', 'Selling', 'Accept'),
+(30, 'Apartment', 1300, '', 'got refrigerator, and television.', 2018, 'Not Furnishing', 'Selangor', 'Hulu Langat', 'Renting', 'Reject'),
+(31, 'Flat', 1300, '', 'got refrigerator, and television.', 2018, 'Not Furnishing', 'Selangor', 'Hulu Langat', 'Renting', 'Accept');
 
 -- --------------------------------------------------------
 
@@ -52637,7 +52701,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `booking_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `booking_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `cities`
@@ -52649,7 +52713,7 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `residential`
 --
 ALTER TABLE `residential`
-  MODIFY `residential_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `residential_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `states`

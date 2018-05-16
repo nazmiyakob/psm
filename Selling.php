@@ -145,7 +145,7 @@
 
 <div class="body3">
   <div class="main">
-    <h2>Remodeling Rooms</h2>
+    <center><h2>Selling</h2></center>
 
     <div class="wrapper pad_bot3">
       <?php 
