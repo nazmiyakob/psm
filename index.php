@@ -24,20 +24,13 @@
   <div class="main">
     <!-- header -->
     <header>
-      <img src="title.jpg">
-      <div class="wrapper">
-        <ul id="icons">
-          <li><a href="#" class="normaltip"><img src="images/icon1.jpg" alt=""></a></li>
-          <li><a href="#" class="normaltip"><img src="images/icon2.jpg" alt=""></a></li>
-          <li><a href="#" class="normaltip"><img src="images/icon3.jpg" alt=""></a></li>
-        </ul>
-      </div>
+      <img src="images/logo_img.png" style="height: 40%">
       <nav>
         <ul id="menu">
           <li id="menu_active"><a href="index.php">Home</a></li>
-          <li><a href="renting.php">Renting</a></li>
-          <li><a href="selling.php">Selling</a></li>
-          <li><a href="upload.php">Upload</a></li>
+          <li><a href="renting.php">Rent</a></li>
+          <li><a href="selling.php">Buy</a></li>
+          <li><a href="upload.php">Sell</a></li>
           <li class="end"><a href="account.php">Login</a></li>
         </ul>
       </nav>
@@ -73,6 +66,16 @@
                     <option value="Johor">Johor</option>
                     <option value="Negeri Sembilan">Negeri Sembilan</option>
                     <option value="Selangor">Selangor</option>
+                    <option value="Kuala Lumpur">Kuala Lumpur</option>
+                    <option value="Pahang">Pahang</option>
+                    <option value="Terengganu">Terengganu</option>
+                    <option value="Penang">Penang</option>
+                    <option value="Perak">Perak</option>
+                    <option value="Kedah">Kedah</option>
+                    <option value="Kelantan">Kelantan</option>
+                    <option value="Perlis">Perlis</option>
+                    <option value="Sabah">Sabah</option>
+                    <option value="Sarawak">Sarawak</option>
                   </select>
               </div>
               <div class="row_select"> Cities : <br>

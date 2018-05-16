@@ -42,21 +42,21 @@
 			else
 			{
 				//header("location:login.php?feedback=Incorrect Password");
-				echo '<script language = "JavaScript">alert("Kata Laluan dan Nama Pengguna tidak sah!")</script>';
+				echo '<script language = "JavaScript">alert("USERNAME AND PASSWORD ARE INVALID")</script>';
 				print '<meta http-equiv="refresh" content="0;URL=login.php">';
 			} 	
 		}
 		else
 		{
 			//header("location:login.php?feedback=User Doesnt Exist");
-			echo '<script language = "JavaScript">alert("Pengguna Tidak Wujud!")</script>';
+			echo '<script language = "JavaScript">alert("USER NOT FOUND!")</script>';
 				print '<meta http-equiv="refresh" content="0;URL=login.php">';
 		}
 	}
 	else
 	{
 		//header("location:login.php?feedback=All Fields Are Required");
-		echo '<script language = "JavaScript">alert(" Semua Ruangan Perlu Di Isikan")</script>';
+		echo '<script language = "JavaScript">alert("ALL FORM MUST BE FILLED IN")</script>';
 				print '<meta http-equiv="refresh" content="0;URL=login.php">';
 
 

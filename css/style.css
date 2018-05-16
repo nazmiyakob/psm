@@ -71,15 +71,15 @@ a {
 a:hover {
 	text-decoration:none
 }
-h1 {
+/*h1 {
 	margin-left:-7px;
 	position:absolute;
 	z-index:2;
-	background:url(../images/logo_img.png) 0 0 no-repeat;
+	background:url(images/logo_img.png) 0 0 no-repeat;
 	height:95px;
 	padding-left:191px;
 	padding-top:28px
-}
+}*/
 h2 {
 	font-size:37px;
 	color:#87a310;
@@ -128,7 +128,7 @@ header {
 }
 #logo {
 	display:block;
-	background:url(../images/title.jpg) 0 0 no-repeat;
+	background:url(images/logo_img.png) 0 0 no-repeat;
 	width:213px;
 	height:38px;
 	text-indent:-9999px

@@ -24,20 +24,13 @@
   <div class="main">
     <!-- header -->
     <header>
-      <img src="title.jpg">
-      <div class="wrapper">
-        <ul id="icons">
-          <li><a href="#" class="normaltip"><img src="images/icon1.jpg" alt=""></a></li>
-          <li><a href="#" class="normaltip"><img src="images/icon2.jpg" alt=""></a></li>
-          <li><a href="#" class="normaltip"><img src="images/icon3.jpg" alt=""></a></li>
-        </ul>
-      </div>
+      <h1><img src="images/logo_img.png" style="height: 40%"></h1>
       <nav>
         <ul id="menu">
           <li><a href="index.php">Home</a></li>
-          <li><a href="renting.php">Renting</a></li>
-          <li><a href="selling.php">Selling</a></li>
-          <li><a href="upload.php">Upload</a></li>
+          <li><a href="renting.php">Rent</a></li>
+          <li><a href="selling.php">Buy</a></li>
+          <li><a href="upload.php">Sell</a></li>
           <li class="end" id="menu_active"><a href="account.php">Login</a></li>
         </ul>
       </nav>
@@ -108,44 +101,3 @@ $(window).load(function () {
 </script>
 </body>
 </html>
-<?php
-if(isset($_POST['btn_register']))
-{
-
-  $username = "root";
-  $password = "";
-  $hostname = "localhost";
-
-
-  $con = mysql_connect($hostname, $username, $password) or die("Could not connect to database");
-
-  mysql_select_db("e_rented_house", $con); 
-
-    $query=mysql_query("SELECT * FROM user");
-    $numrows=mysql_num_rows($query);
-    if($numrows==0)
-    {
-      $sql = "INSERT INTO user (ic_no, fullname, password, email, phone_number) VALUES('$_POST[ic_no]', '$_POST[fullname]', '$_POST[password]', '$_POST[email]', '$_POST[phone_number]')";
-      
-      $result=mysql_query($sql);
-      
-      if($result)
-      {
-        echo '<script language = "JavaScript">alert("YOUR DATA HAS BEEN SAVED")</script>';
-        print '<meta http-equiv="refresh" content="0;URL=account.php">';
-      }
-      else
-      {
-        echo '<script language = "JavaScript">alert("DATA NOT SAVED")</script>';
-        print '<meta http-equiv="refresh" content="0;URL=account.php">';
-      }
-    }
-    else
-    {
-      echo '<script language = "JavaScript">alert("NO QUERY")</script>';
-      print '<meta http-equiv="refresh" content="0;URL=account.php">';
-    }
-    
-  
-}
-?>

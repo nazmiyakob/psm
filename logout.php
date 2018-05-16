@@ -1,6 +1,6 @@
 <?php
 // set the expiration date to one hour ago
-setcookie("username", "", time() - 3600);
+setcookie("ic_no", "", time() - 3600);
 ?>
 <html>
 <body>

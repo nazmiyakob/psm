@@ -24,20 +24,13 @@
   <div class="main">
     <!-- header -->
     <header>
-      <img src="title.jpg">
-      <div class="wrapper">
-        <ul id="icons">
-          <li><a href="#" class="normaltip"><img src="images/icon1.jpg" alt=""></a></li>
-          <li><a href="#" class="normaltip"><img src="images/icon2.jpg" alt=""></a></li>
-          <li><a href="#" class="normaltip"><img src="images/icon3.jpg" alt=""></a></li>
-        </ul>
-      </div>
+      <h1><img src="images/logo_img.png" style="height: 40%"></h1>
       <nav>
         <ul id="menu">
           <li><a href="index.php">Home</a></li>
-          <li><a href="renting.php">Renting</a></li>
-          <li><a href="selling.php">Selling</a></li>
-          <li id="menu_active"><a href="upload.php">Upload</a></li>
+          <li><a href="renting.php">Rent</a></li>
+          <li><a href="selling.php">Buy</a></li>
+          <li id="menu_active"><a href="upload.php">Sell</a></li>
           <li class="end"><a href="account.php">Login</a></li>
         </ul>
       </nav>
@@ -57,26 +50,25 @@
               <h3>Sell Your Property</h3>
               <div class="row_select">
                 <div class="cols"> State : <br>
-                  <select name="res_state" required>
-                    <option value="">&nbsp;</option>
+                  <select name="res_state">
+                    <option>&nbsp;</option>
                     <option value="Melaka">Melaka</option>
                     <option value="Johor">Johor</option>
                     <option value="Negeri Sembilan">Negeri Sembilan</option>
                     <option value="Selangor">Selangor</option>
+                    <option value="Kuala Lumpur">Kuala Lumpur</option>
+                    <option value="Pahang">Pahang</option>
+                    <option value="Terengganu">Terengganu</option>
+                    <option value="Penang">Penang</option>
+                    <option value="Perak">Perak</option>
+                    <option value="Kedah">Kedah</option>
+                    <option value="Kelantan">Kelantan</option>
+                    <option value="Perlis">Perlis</option>
+                    <option value="Sabah">Sabah</option>
+                    <option value="Sarawak">Sarawak</option>
                   </select>
                 </div>
-                <div class="cols pad_left1"> Cities : <br>
-                  <select name="res_cities" required>
-                    <option value="">&nbsp;</option>
-                    <option value="Ayer Keroh">Ayer Keroh</option>
-                    <option value="Durian Tunggal">Durian Tunggal</option>
-                    <option value="Batu Berendam">Batu Berendam</option>
-                    <option value="Jasin">Jasin</option>
-                  </select>
-                </div>
-              </div>
-              
-                <div class="row_select"> Residential Type <br>
+                <div class="cols pad_left1"> Residential Type <br>
                   <select name="residential_type" required>
                     <option value="">&nbsp;</option>
                     <option value="Apartment">Apartment</option>
@@ -85,6 +77,12 @@
                     <option value="2-Sty Terrace">2-Sty Terrace</option>
                     <option value="Town">Town House</option>
                   </select>
+                </div>
+              </div>
+              
+                <div class="row_select"> Cities : <br>
+                  <input type="text" name="res_cities" required>
+                  
                 </div>
 
               <div class="row_select">

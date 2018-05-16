@@ -24,20 +24,13 @@
   <div class="main">
     <!-- header -->
     <header>
-      <img src="title.jpg">
-      <div class="wrapper">
-        <ul id="icons">
-          <li><a href="#" class="normaltip"><img src="images/icon1.jpg" alt=""></a></li>
-          <li><a href="#" class="normaltip"><img src="images/icon2.jpg" alt=""></a></li>
-          <li><a href="#" class="normaltip"><img src="images/icon3.jpg" alt=""></a></li>
-        </ul>
-      </div>
+      <img src="images/logo_img.png" style="height: 40%">
       <nav>
         <ul id="menu">
           <li><a href="index.php">Home</a></li>
-          <li><a href="renting.php">Renting</a></li>
-          <li><a href="selling.php">Selling</a></li>
-          <li><a href="upload.php">Upload</a></li>
+          <li><a href="renting.php">Rent</a></li>
+          <li><a href="selling.php">Buy</a></li>
+          <li><a href="upload.php">Sell</a></li>
           <li class="end"><a href="account.php">Login</a></li>
         </ul>
       </nav>

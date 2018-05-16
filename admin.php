@@ -18,24 +18,22 @@
 <script src="js/html5.js"></script>
 <style type="text/css">.bg{behavior:url("js/PIE.htc");}</style>
 <![endif]aaaaaaaaaaaaa-->
+
+    <?php
+      $ic_no = $_COOKIE['ic_no'];
+    ?>
+
 </head>
 <body id="page1">
 <div class="body1">
   <div class="main">
     <!-- header -->
     <header>
-      <img src="title.jpg">
-      <div class="wrapper">
-        <ul id="icons">
-          <li><a href="#" class="normaltip"><img src="images/icon1.jpg" alt=""></a></li>
-          <li><a href="#" class="normaltip"><img src="images/icon2.jpg" alt=""></a></li>
-          <li><a href="#" class="normaltip"><img src="images/icon3.jpg" alt=""></a></li>
-        </ul>
-      </div>
+      <img src="images/logo_img.png" style="height: 40%">
       <nav>
         <ul id="menu">
           <li id="menu_active"><a href="admin.php">Home</a></li>
-          <li class="menu_active"><a href="approvement.php">Approvement</a></li>
+          <li class="menu_active"><a href="approvement.php">Approval</a></li>
           <li class="menu_active"><a href="report.php">Report</a></li>
           <li class="menu_active"><a href="register.php">Register</a></li>
           <li class="endr" ><a href="logout.php">LogOut</a></li>
@@ -53,21 +51,34 @@
         <article>
           <form id="form_1" action="#" method="post">
             <div class="pad1">
-              <h3>Approvement</h3>
+              <?php 
+                mysql_connect("localhost","root","");
+                mysql_select_db("e_rented_house");
+
+                $sql = mysql_query("SELECT * FROM user WHERE ic_no='$ic_no'");
+
+                $row=mysql_fetch_array($sql);
+
+                $fullname = $row['fullname'];
+
+                echo "<h1 align='right'>Welcome $fullname</h1>";
+
+              ?>
               <?php
                 mysql_connect("localhost","root","");
                 mysql_select_db("e_rented_house");
                 
-                $query1=mysql_query("SELECT * FROM user");
+                $query1=mysql_query("SELECT b.*, r.* FROM booking b, residential r where b.residential_id=r.residential_id");
 
-                echo " <h4><center> LIST USER </center></h4>
+                echo "<h4><center> BOOKING REQUEST </center></h4>
                 <p><br>
-                <table border='1' text-align='center' width='100%'> 
-                <tr bgcolor='lightyellow'>
-                  <th><center> FULL NAME </center></th>
-                  <th><center> IC NUMBER </center></th>
-                  <th><center> EMAIL </center></th>
-                  <th><center> ACTION </center></th>
+                <table border='10' text-align='center' width='100%'> 
+                <tr>
+                  <th><center><h3> FULL NAME </center></th>
+                  <th><center><h3> EMAIL </center></th>
+                  <th><center><h3> CONTACT NUMBER </center></th>
+                  <th><center><h3> RESIDENTIAL </center></th>
+                  <th><center><h3> LOCATION</center></th>
                 </tr>
                 </div></div>";
 
@@ -75,10 +86,12 @@
                 {
                   echo "";
                   echo"<tr height='30px'>";
-                  echo "<td align='center' valign='top'>&nbsp;" . $query2['fullname'] . "</td>";
-                  echo "<td align='center' valign='top'>&nbsp;" . $query2['ic_no'] . "</td>";
-                  echo "<td align='center' valign='top'>&nbsp;" . $query2['email'] . "</td>";
-                  echo "<td align='center'>&nbsp;" . "<form action='' method='POST'><button type='submit' class='button' span='2' formaction='user_delete.php?fullname=".$query2['fullname']."'>DELETE</button></form>";
+                  echo "<td align='center' valign='top'>&nbsp;" . $query2['book_fullname'] . "</td>";
+                  echo "<td align='center' valign='top'>&nbsp;" . $query2['book_email'] . "</td>";
+                  echo "<td align='center' valign='top'>&nbsp;0" . $query2['book_phone_num'] . "</td>";
+                  echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
+                  echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
+                  // echo "<td align='center'>&nbsp;" . "<form action='' method='POST'><button type='submit' class='button' span='2' formaction='user_delete.php?fullname=".$query2['fullname']."'>DELETE</button></form>";
                   echo "</td>";
                   echo "</tr>";
                 }

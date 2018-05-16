@@ -18,24 +18,23 @@
 <script src="js/html5.js"></script>
 <style type="text/css">.bg{behavior:url("js/PIE.htc");}</style>
 <![endif]-->
+
+    <?php
+      $ic_no = $_COOKIE['ic_no'];
+    ?>
+
+
 </head>
 <body id="page1">
 <div class="body1">
   <div class="main">
     <!-- header -->
     <header>
-      <img src="title.jpg">
-      <div class="wrapper">
-        <ul id="icons">
-          <li><a href="#" class="normaltip"><img src="images/icon1.jpg" alt=""></a></li>
-          <li><a href="#" class="normaltip"><img src="images/icon2.jpg" alt=""></a></li>
-          <li><a href="#" class="normaltip"><img src="images/icon3.jpg" alt=""></a></li>
-        </ul>
-      </div>
+      <img src="images/logo_img.png" style="height: 40%">
       <nav>
         <ul id="menu">
           <li><a href="admin.php">Home</a></li>
-          <li class="menu_active"><a href="approvement.php">Approvement</a></li>
+          <li class="menu_active"><a href="approvement.php">Approval</a></li>
           <li class="menu_active"><a href="report.php">Report</a></li>
           <li class="menu_active" id="menu_active"><a href="register.php">Register</a></li>
           <li class="endr" ><a href="logout.php">LogOut</a></li>
