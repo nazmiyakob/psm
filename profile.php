@@ -36,8 +36,8 @@
           <li><a href="admin.php">Home</a></li>
           <li class="menu_active"><a href="approvement.php">Approval</a></li>
           <li class="menu_active"><a href="report.php">Report</a></li>
-          <li class="menu_active" id="menu_active"><a href="register.php">Register</a></li>
-          <li class="menu_active"><a href="profile.php">Profile</a></li>
+          <li class="menu_active""><a href="register.php">Register</a></li>
+          <li class="menu_active" id="menu_active"><a href="profile.php">Profile</a></li>
           <li class="endr" ><a href="logout.php">LogOut</a></li>
         </ul>
       </nav>
@@ -54,27 +54,48 @@
               <article class="col2">
           <form id="form_1" method="post">
             <div class="pad1">
-              <h3>Register</h3>
+              <h3>Profile</h3>
+
+              <?php
+                $username = "root";
+                $password = "";
+                $hostname = "localhost";
+
+
+                $con = mysql_connect($hostname, $username, $password) or die("Could not connect to database");
+
+                mysql_select_db("e_rented_house", $con); 
+                $sql = mysql_query("SELECT * FROM user WHERE ic_no='$ic_no'");
+                $row = mysql_fetch_array($sql);
+
+                $fullname = $row['fullname'];
+                $password = $row['password'];
+                $phone_number = $row['phone_number'];
+                $email = $row['email'];
+
+              ?>
+
               <div class="row"> IC Number :<br>
-                <input type="text" class="input" name="ic_no">
+                <input type="text" class="input" name="ic_no" value="<?php echo $ic_no ?>">
               </div>
               <div class="row"> Full Name :<br>
-                <input type="text" class="input" name="fullname">
+                <input type="text" class="input" name="fullname" value="<?php echo $fullname ?>">
               </div>
               <div class="row"> Password :<br>
-                <input type="password" class="input" name="password">
+                <input type="password" class="input" name="password" value="<?php echo $password ?>">
               </div>
               <div class="row"> Email :<br>
-                <input type="text" class="input" name="email">
+                <input type="text" class="input" name="email" value="<?php echo $email ?>">
               </div>
               <div class="row"> Phone Number :<br>
-                <input type="text" class="input" name="phone_number">
+                <input type="text" class="input" name="phone_number" value="<?php echo $phone_number ?>">
               </div>
               <input type='hidden' name='user_type' value="Admin">
+              <input type='hidden' name='update2' value="<? '$ic_no' ?>" />
 
               <div class="row_select">
                 <div class="cols pad_left1">
-                <input type="submit" name="btn_register" value="Register" class="button">
+                <input type="submit" name="btn_update" value="Update" class="button">
               </div>
               </div> <br>
             </div>
@@ -123,44 +144,18 @@ $(window).load(function () {
 </script>
 </body>
 </html>
-<?php
-if(isset($_POST['btn_register']))
-{
-
-  $username = "root";
-  $password = "";
-  $hostname = "localhost";
-
-
-  $con = mysql_connect($hostname, $username, $password) or die("Could not connect to database");
-
-  mysql_select_db("e_rented_house", $con); 
-
-    $query=mysql_query("SELECT * FROM user");
-    $numrows=mysql_num_rows($query);
-    if($numrows)
-    {
-      $sql = "INSERT INTO user (ic_no, fullname, password, email, phone_number, user_type) VALUES('$_POST[ic_no]', '$_POST[fullname]', '$_POST[password]', '$_POST[email]', '$_POST[phone_number]', '$_POST[user_type]')";
       
-      $result=mysql_query($sql);
-      
-      if($result)
-      {
-        echo '<script language = "JavaScript">alert("ADMIN HAVE BEEN REGISTER")</script>';
-        print '<meta http-equiv="refresh" content="0;URL=register.php">';
-      }
-      else
-      {
-        echo '<script language = "JavaScript">alert("DATA NOT REGISTER")</script>';
-        print '<meta http-equiv="refresh" content="0;URL=register.php">';
-      }
-    }
-    else
-    {
-      echo '<script language = "JavaScript">alert("NO QUERY")</script>';
-      print '<meta http-equiv="refresh" content="0;URL=register.php">';
-    }
-    
-  
-}
-?>
+      <?php
+        if(isset($_POST['btn_update']))
+        {
+          $ic_no = $_POST['ic_no'];
+          $fullname = $_POST['fullname'];
+          $password = $_POST['password'];
+          $phone_number = $_POST['phone_number'];
+          $email = $_POST['email'];
+         // echo $name;
+          //echo $event_id;
+            $sql = mysql_query("UPDATE user SET ic_no='$ic_no' , fullname='$fullname' , password='$password', phone_number='$phone_number' , email='$email' WHERE ic_no='$ic_no'");
+           print "<meta http-equiv='refresh' content='0;URL=profile.php'>";
+        }
+      ?>

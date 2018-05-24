@@ -37,6 +37,7 @@
           <li class="menu_active" id="menu_active"><a href="approvement.php">Approval</a></li>
           <li class="menu_active"><a href="report.php">Report</a></li>
           <li class="menu_active"><a href="register.php">Register</a></li>
+          <li class="menu_active"><a href="profile.php">Profile</a></li>
           <li class="endr" ><a href="logout.php">LogOut</a></li>
         </ul>
       </nav>
