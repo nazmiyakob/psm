@@ -45,9 +45,9 @@
   </div>
 </div>
 <!-- content -->
-<div class="body2" style="height: 100%;">
-  <div class="main" style="height: 100%;">
-    <section id="content" style="height: 100%;">
+<div class="body2">
+  <div class="main">
+    <section id="content">
       <div class="wrapper">
         <article>
           <form id="" action="#" method="post">
@@ -65,14 +65,33 @@
                 echo "<h1 align='right'>Welcome $fullname</h1>";
 
               ?>
+                
+              <h2><center> BOOKING REQUEST </center></h2>
+              <p>
+
+              <form action="admin.php" method="post">
+                <div align="right">
+                  <b>Search Residential : </b>
+                <select name="searchtype" required="required" >
+                  <option value="">Select Options</option>
+                  <option value="type">Apartment</option>
+                  <option value="price">Flat</option>
+                  <option value="state">1-Sty Terrace</option>
+                  <option value="state">2-Sty Terrace</option>
+                  <option value="state">Town</option>
+                </div>
+                </select>
+                
+                <input  class="button" type="submit" name="search" value="Search"/>
+              </form>
+
               <?php
                 mysql_connect("localhost","root","");
                 mysql_select_db("e_rented_house");
                 
-                $query1=mysql_query("SELECT b.*, r.* FROM booking b, residential r where b.residential_id=r.residential_id");
+                $query1=mysql_query("SELECT b.*, r.* FROM booking b, residential r where b.residential_id=r.residential_id order by booking_id");
 
-                echo "<h2><center> BOOKING REQUEST </center></h2>
-                <p><br>
+                echo "
                 <table border='10' text-align='center' width='100%'> 
                 <tr>
                   <th><center><h3> FULL NAME </center></th>

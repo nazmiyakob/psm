@@ -51,7 +51,7 @@
     <section id="content">
       <div class="wrapper" style="height: 100%;">
         <article>
-          <form id="form_1" action="#" method="post">
+          <form id="form_1" action="#" method="post" style="height: 90%;">
             <div class="pad1">
               <?php 
                 mysql_connect("localhost","root","");
@@ -73,8 +73,8 @@
                 
                 $query1=mysql_query("SELECT * FROM residential Where status='PENDING'");
 
-                echo "<h4><center> PENDING REQUEST </center></h4>
-                <p><br>
+                echo "<p><h4><center> PENDING REQUEST </center></h4>
+                <p>
                 <table border='10' text-align='center' width='100%'>
                 <tr>
                   <th><center><h3> Details </center></th>
@@ -97,6 +97,44 @@
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
                   echo "<td align='center'>&nbsp;" . "<button class='button' type='submit' span='2' name='btn_accept'>ACCEPT</button><button class='button' type='submit' span='2' name='btn_reject'>REJECT</button>" . "<input type='hidden' name='residential_id' value=".$query2['residential_id']. "</td>";
+                  echo "</form>";
+                  echo "</td>";
+                  echo "</tr>";
+                }
+                
+                echo "</table>";
+              ?>
+
+              <?php 
+                mysql_connect("localhost","root","");
+                mysql_select_db("e_rented_house");
+                
+                $query1=mysql_query("SELECT * FROM residential Where status='REJECT'");
+
+                echo "<p><br><p><h4><center> REJECTED REQUEST </center></h4>
+                <p>
+                <table border='10' text-align='center' width='100%'>
+                <tr>
+                  <th><center><h3> Details </center></th>
+                  <th><center><h3> Residential </center></th>
+                  <th><center><h3> Price </center></th>
+                  <th><center><h3> Furnishing </center></th>
+                  <th><center><h3> Location </center></th>
+                  <th><center><h3> Status </center></th>
+                </tr>
+                </div></div>";
+
+                while($query2=mysql_fetch_array($query1))
+                {
+                  echo "<form action='' method='post'>";
+                  echo "";
+                  echo"<tr height='30px' class='color2'>";
+                  echo "<td align='center' valign='top'>&nbsp;<a href='details.php'>Details</a></td>";
+                  echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
+                  echo "<td align='center' valign='top'>&nbsp;RM " . $query2['residential_price'] . "</td>";
+                  echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
+                  echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
+                  echo "<td align='center' valign='top'>&nbsp;" . $query2['status'] . "</td>";
                   echo "</form>";
                   echo "</td>";
                   echo "</tr>";

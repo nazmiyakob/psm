@@ -61,7 +61,7 @@
   <div class="main">
     <section id="content">
       <div class="wrapper">
-        
+        <form id="form_1" action="#" method="post" style="height: 100%;">
         <div class="pad1">
               <?php 
                 mysql_connect("localhost","root","");
@@ -171,6 +171,7 @@
             ?>
           
         </div>
+      </form>
       </div>
     </section>
   </div>
