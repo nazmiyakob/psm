@@ -75,11 +75,11 @@
 
               ?>
 
-              <div class="row"> IC Number :<br>
-                <input type="text" class="input" name="ic_no" value="<?php echo $ic_no ?>">
+              <div class="row"> <b>IC Number :<br>
+                <?php echo $ic_no ?>
               </div>
               <div class="row"> Full Name :<br>
-                <input type="text" class="input" name="fullname" value="<?php echo $fullname ?>">
+                <?php echo $fullname ?>
               </div>
               <div class="row"> Password :<br>
                 <input type="password" class="input" name="password" value="<?php echo $password ?>">

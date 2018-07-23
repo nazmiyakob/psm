@@ -74,11 +74,11 @@
                   <b>Search Residential : </b>
                 <select name="searchtype" required="required" >
                   <option value="">Select Options</option>
-                  <option value="type">Apartment</option>
-                  <option value="price">Flat</option>
-                  <option value="state">1-Sty Terrace</option>
-                  <option value="state">2-Sty Terrace</option>
-                  <option value="state">Town</option>
+                  <option value="apartment">Apartment</option>
+                  <option value="flat">Flat</option>
+                  <option value="1-sty terrace">1-Sty Terrace</option>
+                  <option value="2-sty terrace">2-Sty Terrace</option>
+                  <option value="town">Town</option>
                 </div>
                 </select>
                 
@@ -86,34 +86,268 @@
               </form>
 
               <?php
+                
+                error_reporting(0);
+                $searchtype = $_POST['searchtype'];
+
                 mysql_connect("localhost","root","");
                 mysql_select_db("e_rented_house");
                 
-                $query1=mysql_query("SELECT b.*, r.* FROM booking b, residential r where b.residential_id=r.residential_id order by booking_id");
-
-                echo "
-                <table border='10' text-align='center' width='100%'> 
-                <tr>
-                  <th><center><h3> FULL NAME </center></th>
-                  <th><center><h3> EMAIL </center></th>
-                  <th><center><h3> CONTACT NUMBER </center></th>
-                  <th><center><h3> RESIDENTIAL </center></th>
-                  <th><center><h3> LOCATION</center></th>
-                </tr>
-                </div></div>";
-
-                while($query2=mysql_fetch_array($query1))
+                if($searchtype == 'apartment')
                 {
-                  echo "";
-                  echo"<tr height='30px'>";
-                  echo "<td align='center' valign='top'>&nbsp;" . $query2['book_fullname'] . "</td>";
-                  echo "<td align='center' valign='top'>&nbsp;" . $query2['book_email'] . "</td>";
-                  echo "<td align='center' valign='top'>&nbsp;0" . $query2['book_phone_num'] . "</td>";
-                  echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
-                  echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
-                  // echo "<td align='center'>&nbsp;" . "<form action='' method='POST'><button type='submit' class='button' span='2' formaction='user_delete.php?fullname=".$query2['fullname']."'>DELETE</button></form>";
-                  echo "</td>";
-                  echo "</tr>";
+                  $query = mysql_query("SELECT * FROM residential WHERE residential_type LIKE 'Apartment'") or die(mysql_error());
+                  $checkrow = mysql_num_rows($query);
+                  if($checkrow > 0)
+                  {
+                    echo "<div class='wrapper pad_bot3'>
+          
+                          <table border='10' text-align='center' width='100%'>
+                            <tr class='color2'>
+                              <th><center><h3> Details </center></th>
+                              <th><center><h3> Residential </center></th>
+                              <th><center><h3> Price </center></th>
+                              <th><center><h3> Furnishing </center></th>
+                              <th><center><h3> Location </center></th>
+                              <th><center><h3> Action </center></th>
+                            </tr>
+                            </div></div>";
+
+                  while($query2=mysql_fetch_array($query))
+                  {
+                    echo "<form action='booking.php' method='post'>";
+                    echo "";
+                    echo"<tr height='30px' class='color2'>";
+                    echo "<td align='center' valign='top'>&nbsp;<a href='details.php'>Details</a></td>";
+                    echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
+                    echo "<td align='center' valign='top'>&nbsp;RM " . $query2['residential_price'] . "</td>";
+                    echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
+                    echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
+                    echo "<input type='hidden' name='event_id' value=" . $query2['residential_id'] . ">";
+                    echo "<td align='center'>
+                            <button type='submit' class='button' span='2' >BUY</button></form>";
+                    echo "</td>";
+                    echo "</td>";
+                    echo "</tr>";
+                  }
+
+                    
+                  }
+
+                  else if($checkrow < 1)
+                  {
+                    
+                  echo '<script language="javascript">alert("No residential type of '.$searchdata.'")</script>';
+
+                  
+                  }
+
+                }
+
+                else if($searchtype == 'flat')
+                {
+                  $query = mysql_query("SELECT * FROM residential WHERE residential_type LIKE 'flat'") or die(mysql_error());
+                  $checkrow = mysql_num_rows($query);
+                  if($checkrow > 0)
+                  {
+                    echo "<div class='wrapper pad_bot3'>
+          
+                          <table border='10' text-align='center' width='100%'>
+                            <tr class='color2'>
+                              <th><center><h3> Details </center></th>
+                              <th><center><h3> Residential </center></th>
+                              <th><center><h3> Price </center></th>
+                              <th><center><h3> Furnishing </center></th>
+                              <th><center><h3> Location </center></th>
+                              <th><center><h3> Action </center></th>
+                            </tr>
+                            </div></div>";
+
+                  while($query2=mysql_fetch_array($query))
+                  {
+                    echo "<form action='booking.php' method='post'>";
+                    echo "";
+                    echo"<tr height='30px' class='color2'>";
+                    echo "<td align='center' valign='top'>&nbsp;<a href='details.php'>Details</a></td>";
+                    echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
+                    echo "<td align='center' valign='top'>&nbsp;RM " . $query2['residential_price'] . "</td>";
+                    echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
+                    echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
+                    echo "<input type='hidden' name='event_id' value=" . $query2['residential_id'] . ">";
+                    echo "<td align='center'>
+                            <button type='submit' class='button' span='2' >BUY</button></form>";
+                    echo "</td>";
+                    echo "</td>";
+                    echo "</tr>";
+                  }
+
+                    
+                  }
+
+                  else if($checkrow < 1)
+                  {
+                    
+                  echo '<script language="javascript">alert("No residential type of '.$searchdata.'")</script>';
+
+                  
+                  }
+
+                }
+
+                else if($searchtype == '1-sty terrace')
+                {
+                  $query = mysql_query("SELECT * FROM residential WHERE residential_type LIKE '1-sty terrace'") or die(mysql_error());
+                  $checkrow = mysql_num_rows($query);
+                  if($checkrow > 0)
+                  {
+                    echo "<div class='wrapper pad_bot3'>
+          
+                          <table border='10' text-align='center' width='100%'>
+                            <tr class='color2'>
+                              <th><center><h3> Details </center></th>
+                              <th><center><h3> Residential </center></th>
+                              <th><center><h3> Price </center></th>
+                              <th><center><h3> Furnishing </center></th>
+                              <th><center><h3> Location </center></th>
+                              <th><center><h3> Action </center></th>
+                            </tr>
+                            </div></div>";
+
+                  while($query2=mysql_fetch_array($query))
+                  {
+                    echo "<form action='booking.php' method='post'>";
+                    echo "";
+                    echo"<tr height='30px' class='color2'>";
+                    echo "<td align='center' valign='top'>&nbsp;<a href='details.php'>Details</a></td>";
+                    echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
+                    echo "<td align='center' valign='top'>&nbsp;RM " . $query2['residential_price'] . "</td>";
+                    echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
+                    echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
+                    echo "<input type='hidden' name='event_id' value=" . $query2['residential_id'] . ">";
+                    echo "<td align='center'>
+                            <button type='submit' class='button' span='2' >BUY</button></form>";
+                    echo "</td>";
+                    echo "</td>";
+                    echo "</tr>";
+                  }
+
+                    
+                  }
+
+                  else if($checkrow < 1)
+                  {
+                    
+                  echo '<script language="javascript">alert("No residential type of '.$searchdata.'")</script>';
+
+                  
+                  }
+
+                }
+
+                else if($searchtype == '2-sty terrace')
+                {
+                  $query = mysql_query("SELECT * FROM residential WHERE residential_type LIKE '2-sty terrace'") or die(mysql_error());
+                  $checkrow = mysql_num_rows($query);
+                  if($checkrow > 0)
+                  {
+                    echo "<div class='wrapper pad_bot3'>
+          
+                          <table border='10' text-align='center' width='100%'>
+                            <tr class='color2'>
+                              <th><center><h3> Details </center></th>
+                              <th><center><h3> Residential </center></th>
+                              <th><center><h3> Price </center></th>
+                              <th><center><h3> Furnishing </center></th>
+                              <th><center><h3> Location </center></th>
+                              <th><center><h3> Action </center></th>
+                            </tr>
+                            </div></div>";
+
+                  while($query2=mysql_fetch_array($query))
+                  {
+                    echo "<form action='booking.php' method='post'>";
+                    echo "";
+                    echo"<tr height='30px' class='color2'>";
+                    echo "<td align='center' valign='top'>&nbsp;<a href='details.php'>Details</a></td>";
+                    echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
+                    echo "<td align='center' valign='top'>&nbsp;RM " . $query2['residential_price'] . "</td>";
+                    echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
+                    echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
+                    echo "<input type='hidden' name='event_id' value=" . $query2['residential_id'] . ">";
+                    echo "<td align='center'>
+                            <button type='submit' class='button' span='2' >BUY</button></form>";
+                    echo "</td>";
+                    echo "</td>";
+                    echo "</tr>";
+                  }
+
+                    
+                  }
+
+                  else if($checkrow < 1)
+                  {
+                    
+                  echo '<script language="javascript">alert("No residential type of '.$searchdata.'")</script>';
+
+                  
+                  }
+
+                }
+
+                else if($searchtype == 'town')
+                {
+                  $query = mysql_query("SELECT * FROM residential WHERE residential_type LIKE 'town'") or die(mysql_error());
+                  $checkrow = mysql_num_rows($query);
+                  if($checkrow > 0)
+                  {
+                    echo "<div class='wrapper pad_bot3'>
+          
+                          <table border='10' text-align='center' width='100%'>
+                            <tr class='color2'>
+                              <th><center><h3> Details </center></th>
+                              <th><center><h3> Residential </center></th>
+                              <th><center><h3> Price </center></th>
+                              <th><center><h3> Furnishing </center></th>
+                              <th><center><h3> Location </center></th>
+                              <th><center><h3> Action </center></th>
+                            </tr>
+                            </div></div>";
+
+                  while($query2=mysql_fetch_array($query))
+                  {
+                    echo "<form action='booking.php' method='post'>";
+                    echo "";
+                    echo"<tr height='30px' class='color2'>";
+                    echo "<td align='center' valign='top'>&nbsp;<a href='details.php'>Details</a></td>";
+                    echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
+                    echo "<td align='center' valign='top'>&nbsp;RM " . $query2['residential_price'] . "</td>";
+                    echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
+                    echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
+                    echo "<input type='hidden' name='event_id' value=" . $query2['residential_id'] . ">";
+                    echo "<td align='center'>
+                            <button type='submit' class='button' span='2' >BUY</button></form>";
+                    echo "</td>";
+                    echo "</td>";
+                    echo "</tr>";
+                  }
+
+                    
+                  }
+
+                  else if($checkrow < 1)
+                  {
+                    
+                  echo '<script language="javascript">alert("No residential type of '.$searchdata.'")</script>';
+
+                  
+                  }
+
+                }
+
+                else
+                {
+                  
+                  echo '<p><h4>Choose your Residential</h4>';
+
                 }
 
               echo "</table>";
