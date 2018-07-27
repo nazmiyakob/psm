@@ -88,8 +88,7 @@
 
                 while($query2=mysql_fetch_array($query1))
                 {
-                  echo "<form action='' method='post'>";
-                  echo "";
+                  echo "<form action='reason.php' method='post'>";
                   echo"<tr height='30px' class='color2'>";
                   echo "<td align='center' valign='top'>&nbsp;<a href='details.php'>Details</a></td>";
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
@@ -120,7 +119,7 @@
                   <th><center><h3> Price </center></th>
                   <th><center><h3> Furnishing </center></th>
                   <th><center><h3> Location </center></th>
-                  <th><center><h3> Status </center></th>
+                  <th><center><h3> Reason </center></th>
                 </tr>
                 </div></div>";
 
@@ -134,7 +133,7 @@
                   echo "<td align='center' valign='top'>&nbsp;RM " . $query2['residential_price'] . "</td>";
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
-                  echo "<td align='center' valign='top'>&nbsp;" . $query2['status'] . "</td>";
+                  echo "<td align='center' valign='top'>&nbsp;" . $query2['reject_because'] . "</td>";
                   echo "</form>";
                   echo "</td>";
                   echo "</tr>";
@@ -176,14 +175,16 @@
                 $residential_id = $_POST['residential_id'];
 
                   $sql = "UPDATE residential SET status='Reject' WHERE residential_id='$residential_id'";
-                  echo "<script> alert('REJECTED'); window.location.href='approvement.php'; </script>";
+                  echo "<script>
+                          alert('REJECTED');
+                        </script>";
+                  print '<meta http-equiv="refresh" content="0;URL=reason.php">';
 
                 mysql_query($sql,$con);
                 mysql_close($con);
 
               }
             ?>
-
 
 
         </div>
