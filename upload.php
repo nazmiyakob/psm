@@ -105,7 +105,7 @@
               </div>
 
               <div class="row_select"> Year of Residential : <br>
-                  <input type="number" name="residential_year" required>
+                  <input type="number" name="residential_year" min="1990" max="2018" required>
               </div>
 
               <div class="row_select"> Price (RM) : <br>  

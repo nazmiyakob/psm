@@ -42,22 +42,22 @@
 			else
 			{
 				//header("location:login.php?feedback=Incorrect Password");
-				echo '<script language = "JavaScript">alert("USERNAME AND PASSWORD ARE INVALID")</script>';
-				print '<meta http-equiv="refresh" content="0;URL=login.php">';
+				echo '<script language = "JavaScript">alert("USER NOT FOUND OR INCORRECT PASSWORD!")</script>';
+				print '<meta http-equiv="refresh" content="0;URL=account.php">';
 			} 	
 		}
 		else
 		{
 			//header("location:login.php?feedback=User Doesnt Exist");
-			echo '<script language = "JavaScript">alert("USER NOT FOUND!")</script>';
-				print '<meta http-equiv="refresh" content="0;URL=login.php">';
+			echo '<script language = "JavaScript">alert("USER NOT FOUND OR INCORRECT PASSWORD!")</script>';
+				print '<meta http-equiv="refresh" content="0;URL=account.php">';
 		}
 	}
 	else
 	{
 		//header("location:login.php?feedback=All Fields Are Required");
 		echo '<script language = "JavaScript">alert("ALL FORM MUST BE FILLED IN")</script>';
-				print '<meta http-equiv="refresh" content="0;URL=login.php">';
+				print '<meta http-equiv="refresh" content="0;URL=account.php">';
 
 
 	}

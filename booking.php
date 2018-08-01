@@ -65,6 +65,9 @@
               <div class="row"> Phone Number :<br>
                 <input type="text" class="input" name="book_phone_num">
               </div>
+              <div class="row"> Booking Date :<br>
+                <input type="date" class="input" name="book_date">
+              </div>
 
               <input type="hidden" class="input" name="residential_id" value="<?php echo $residential_id; ?>">
 
@@ -137,7 +140,7 @@ if(isset($_POST['btn_book']))
     //$numrows=mysql_num_rows($query);
     // if($numrows==0)
     // {
-      $sql = "INSERT INTO booking (residential_id, book_fullname, book_ic_no, book_email, book_phone_num) VALUES('$residential_id','$_POST[book_fullname]', '$_POST[book_ic_no]', '$_POST[book_email]', '$_POST[book_phone_num]')";
+      $sql = "INSERT INTO booking (residential_id, book_fullname, book_ic_no, book_email, book_phone_num, book_date) VALUES('$residential_id','$_POST[book_fullname]', '$_POST[book_ic_no]', '$_POST[book_email]', '$_POST[book_phone_num]', '$_POST[book_date]')";
       
       $result=mysql_query($sql);
       

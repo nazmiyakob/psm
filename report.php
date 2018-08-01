@@ -61,7 +61,7 @@
   <div class="main">
     <section id="content">
       <div class="wrapper">
-        <form id="form_1" action="#" method="post" style="height: 100%;">
+        <form id="form_1" action="#" method="post" style="height: 150%;">
         <div class="pad1">
               <?php 
                 mysql_connect("localhost","root","");
@@ -169,6 +169,46 @@
               $sql114 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where res_state ='Sarawak' and sales='Selling'");
               $query114=mysql_fetch_array($sql114);
             ?>
+
+            <center><h2>By Month</h2></center>
+            <canvas id="chartMonth" width="700" height="300"></canvas>
+            <?php 
+              $sql15 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where MONTH(book_date) = 01 ");
+              $query15=mysql_fetch_array($sql15);
+
+              $sql16 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where MONTH(book_date) = 02 ");
+              $query16=mysql_fetch_array($sql16);
+
+              $sql17 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where MONTH(book_date) = 03 ");
+              $query17=mysql_fetch_array($sql17);
+  
+              $sql18 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where MONTH(book_date) = 04 ");
+              $query18=mysql_fetch_array($sql18);
+
+              $sql19 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where MONTH(book_date) = 05 ");
+              $query19=mysql_fetch_array($sql19);
+
+              $sql20 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where MONTH(book_date) = 06 ");
+              $query20=mysql_fetch_array($sql20); 
+
+              $sql21 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where MONTH(book_date) = 07 ");
+              $query21=mysql_fetch_array($sql21);
+
+              $sql22 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where MONTH(book_date) = 08 ");
+              $query22=mysql_fetch_array($sql22);
+
+              $sql23 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where MONTH(book_date) = 09 ");
+              $query23=mysql_fetch_array($sql23);
+
+              $sql24 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where MONTH(book_date) = 10 ");
+              $query24=mysql_fetch_array($sql24);
+
+              $sql25 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where MONTH(book_date) = 11 ");
+              $query25=mysql_fetch_array($sql25);
+
+              $sql26 = mysql_query("SELECT count(booking_id) from booking join residential on booking.residential_id = residential.residential_id where MONTH(book_date) = 12 ");
+              $query26=mysql_fetch_array($sql26);
+            ?>
           
         </div>
       </form>
@@ -242,6 +282,40 @@
           }
         });
       </script>
+
+      <script>
+        var ctx = document.getElementById("chartMonth");
+        var chartMonth = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ["January","February","March","April","May","June","July","August","September","October","November","December"],
+            datasets: [{
+              label: 'No of Booking',
+              data: [<?php echo $query15[0];?>,<?php echo $query16[0];?>,<?php echo $query17[0];?>,<?php echo $query18[0];?>,<?php echo $query19[0];?>,
+                    <?php echo $query20[0];?>,<?php echo $query21[0];?>,<?php echo $query22[0];?>,<?php echo $query23[0];?>,<?php echo $query24[0];?>,
+                    <?php echo $query25[0];?>,<?php echo $query26[0];?>
+                
+                ],
+              backgroundColor: [
+                 "#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF","#00FFFF",
+                 
+              ],
+              borderWidth: 5
+            }]
+          },
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero:true
+                  
+                }
+              }]
+            }
+          }
+        });
+      </script>
+
 <script>Cufon.now();</script>
 <script>
 $(window).load(function () {
