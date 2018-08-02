@@ -21,6 +21,7 @@
 
     <?php
       $ic_no = $_COOKIE['ic_no'];
+      $residential_id = $_COOKIE['residential_id'];
     ?>
 
 
@@ -81,7 +82,7 @@
                 echo '<h3><center> REASON FOR REJECT </center></h3>
                         <form action="reason.php" method="post">
                           <div class="row"> residential type :<br>
-                            $residential_id
+                           $residential_id = $_POST["residential_id"];
                           </div>
                           <textarea  rows="4" cols="50" name="reject_because" required="required"></textarea>
                           <input class="button" type="submit" name="search" value="Search">

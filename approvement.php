@@ -88,7 +88,7 @@
 
                 while($query2=mysql_fetch_array($query1))
                 {
-                  echo "<form action='reason.php' method='post'>";
+                  echo "<form action='' method='post'>";
                   echo"<tr height='30px' class='color2'>";
                   echo "<td align='center' valign='top'>&nbsp;<a href='details.php'>Details</a></td>";
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
@@ -96,9 +96,9 @@
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
                   echo "<td align='center'>&nbsp;" . "<button class='button' type='submit' span='2' name='btn_accept'>ACCEPT</button><button class='button' type='submit' span='2' name='btn_reject'>REJECT</button>" . "<input type='hidden' name='residential_id' value=".$query2['residential_id']. "</td>";
-                  echo "</form>";
                   echo "</td>";
                   echo "</tr>";
+                  echo "</form>";
                 }
                 
                 echo "</table>";
@@ -175,10 +175,10 @@
                 $residential_id = $_POST['residential_id'];
 
                   $sql = "UPDATE residential SET status='Reject' WHERE residential_id='$residential_id'";
-                  echo "<script>
-                          alert('REJECTED');
-                        </script>";
-                  print '<meta http-equiv="refresh" content="0;URL=reason.php">';
+                  echo "<script> alert('REJECTED!'); window.location.href='reason.php'; </script>";
+                  setcookie('residential_id',"$residential_id");
+                  session_start();  
+                  header("location:reason.php");
 
                 mysql_query($sql,$con);
                 mysql_close($con);
