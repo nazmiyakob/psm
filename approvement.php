@@ -95,7 +95,7 @@
                   echo "<td align='center' valign='top'>&nbsp;RM " . $query2['residential_price'] . "</td>";
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
-                  echo "<td align='center'>&nbsp;" . "<button class='button' type='submit' span='2' name='btn_accept'>ACCEPT</button><button class='button' type='submit' span='2' name='btn_reject'>REJECT</button>" . "<input type='hidden' name='residential_id' value=".$query2['residential_id']. "</td>";
+                  echo "<td align='center'>&nbsp;" . "<button class='button' type='submit' span='2' name='btn_accept'>ACCEPT</button><button class='button' type='submit' span='2' name='btn_reject'>REJECT</button>" . "<input type='hidden' name='residential_id' value=".$query2['residential_id']. "></td>";
                   echo "</td>";
                   echo "</tr>";
                   echo "</form>";
@@ -155,7 +155,7 @@
                 $residential_id = $_POST['residential_id'];
 
                   $sql = "UPDATE residential SET status='Accept' WHERE residential_id='$residential_id'";
-                  echo "<script> alert('ACCEPTED'); window.location.href='approvement.php'; </script>";
+                  echo "<script> alert('ACCEPTED'); window.location.href='approvement.php?residential_id=".$residential_id."'; </script>";
 
                 mysql_query($sql,$con);
                 mysql_close($con);
@@ -175,7 +175,7 @@
                 $residential_id = $_POST['residential_id'];
 
                   $sql = "UPDATE residential SET status='Reject' WHERE residential_id='$residential_id'";
-                  echo "<script> alert('REJECTED!'); window.location.href='reason.php'; </script>";
+                  echo "<script> alert('REJECTED!');  window.location.href='reason.php?residential_id=".$residential_id."'; </script>";
                   setcookie('residential_id',"$residential_id");
                   session_start();  
                   header("location:reason.php");

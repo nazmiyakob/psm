@@ -21,7 +21,19 @@
 
     <?php
       $ic_no = $_COOKIE['ic_no'];
-      $residential_id = $_COOKIE['residential_id'];
+      //$residential_id = $_COOKIE['residential_id'];
+      
+      
+
+      session_start();
+      include_once('connect.php');
+
+      // $sqlSlc = "SELECT * from residential ";
+      // $querySlc = mysqli_query($con,$sqlSlc) or die(mysqli_error($con));
+      // $resultData = mysqli_fetch_assoc($querySlc);
+
+      // echo $resultData['residential_id'];
+
     ?>
 
 
@@ -68,31 +80,14 @@
 
               ?>
 
-               <?php 
-                mysql_connect("localhost","root","");
-                mysql_select_db("e_rented_house");
-                
-                $residential_id = $_POST['residential_id'];
-                $query1=mysql_query("SELECT * FROM residential Where residential_id='$residential_id'");
-
-
-                echo "<h1 align='right'>$residential_id</h1>";
-
-
-                echo '<h3><center> REASON FOR REJECT </center></h3>
-                        <form action="reason.php" method="post">
-                          <div class="row"> residential type :<br>
-                           $residential_id = $_POST["residential_id"];
-                          </div>
-                          <textarea  rows="4" cols="50" name="reject_because" required="required"></textarea>
-                          <input class="button" type="submit" name="search" value="Search">
-                        </form>';
-
-              ?>
+               <h3><center> REASON FOR REJECT </center></h3>
+                  <form method="post">
+                    <div class="row"> Reason :<br>
+                      <textarea  rows="10" cols="100" name="reject_because" required="required"></textarea>
+                      <input class="button" type="submit" name="Submit" value="Submit">
+                    </div>
+                  </form>
             </div>
-
-
-
         </div>
           </form>
         </article>
@@ -139,3 +134,48 @@ $(window).load(function () {
 </script>
 </body>
 </html>
+
+<?php
+$residential_id = $_GET["residential_id"];
+$rejectBecause = $_POST['reject_because'];
+
+if(isset($_POST['Submit']))
+{
+
+  $username = "root";
+  $password = "";
+  $hostname = "localhost";
+  $database = "e_rented_house";
+
+  global $residential_id, $rejectBecause;
+
+  echo var_dump($residential_id);
+  $con = mysqli_connect($hostname, $username, $password, $database) or die("Could not connect to database");
+
+  $sql = "UPDATE residential SET reject_because = '".$rejectBecause."' WHERE residential_id = ".$residential_id;
+
+  if (mysqli_query($con, $sql)) 
+  {
+   echo "<script type='text/javascript'
+  alert('Reason Saved!');
+  window.location.href='approvement.php';
+  </script>";
+  }
+  
+  else
+  {
+    echo "<script type='text/javascript'
+  alert('Fuck!');
+  window.location.href='approvement.php';
+  </script>";
+  } 
+
+  echo "<script type='text/javascript'
+  alert('Reason Saved!');
+  window.location.href='approvement.php';
+  </script>";
+}
+
+  
+
+?>
