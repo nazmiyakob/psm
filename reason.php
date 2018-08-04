@@ -156,24 +156,15 @@ if(isset($_POST['Submit']))
 
   if (mysqli_query($con, $sql)) 
   {
-   echo "<script type='text/javascript'
-  alert('Reason Saved!');
-  window.location.href='approvement.php';
-  </script>";
+    echo '<script language = "JavaScript">alert("SAVE")</script>';
+    print '<meta http-equiv="refresh" content="0;URL=approvement.php">';
   }
   
   else
   {
-    echo "<script type='text/javascript'
-  alert('Fuck!');
-  window.location.href='approvement.php';
-  </script>";
+    echo '<script language = "JavaScript">alert("NOT SAVE")</script>';
+    print '<meta http-equiv="refresh" content="0;URL=approvement.php">';
   } 
-
-  echo "<script type='text/javascript'
-  alert('Reason Saved!');
-  window.location.href='approvement.php';
-  </script>";
 }
 
   
