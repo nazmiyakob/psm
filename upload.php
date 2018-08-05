@@ -43,9 +43,9 @@
 <div class="body2" style="height: 100%;">
   <div class="main">
     <section id="content">
-      <div class="wrapper">
-        <article class="col2">
-          <form id="form_1" action="" method="post">
+      <div class="wrapper" style="height: 100%;">
+        <article>
+          <form id="form_1" action="" method="post" style="height: 80%;">
             <div class="pad1">
               <h3>Sell Your Property</h3>
               <div class="row_select">
@@ -79,11 +79,11 @@
                   </select>
                 </div>
               </div>
-              
+              <p>
                 <div class="row_select"> Cities : <br>
                   <input type="text" name="res_cities" required>
                   
-                </div>
+                </div><p>
 
               <div class="row_select">
                 <div class="cols"> Furnishing : <br>
@@ -102,19 +102,19 @@
                     <option value="Selling">Selling</option>
                   </select>
                 </div>
-              </div>
+              </div><p>
 
               <div class="row_select"> Year of Residential : <br>
                   <input type="number" name="residential_year" min="1990" max="2018" required>
-              </div>
+              </div><p>
 
               <div class="row_select"> Price (RM) : <br>  
                 <input type="number" name="residential_price" required>
-              </div>
+              </div><p>
 
               <div class="row_select"> Residential Description : <br>  
                 <textarea rows="4" cols="28" name="residential_description" required></textarea>
-              </div>
+              </div><p>
               
               <div class="row_select">
                 <div class="cols"><!-- Bedroom(s):<br>

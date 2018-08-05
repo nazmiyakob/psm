@@ -42,22 +42,7 @@
 <div class="body2" style="height: 100%;">
   <div class="main">
     <section id="content">
-      <div class="wrapper">
-
-        <form action="search.php" method="post">
-              <div class="row_select">Search By :
-              <select name="searchtype" required="required" >
-                <option value="">Select Options</option>
-                <option value="type">Residential Type</option>
-                <option value="price">Residential Price</option>
-                <option value="state">Residential State</option>
-              </select>
-
-              <input type="text" name="search_data" size="40"  required="required" />
-              <input  class="button" type="submit" name="search" value="Search"/>
-            </div>
-        </form>
-        
+      <div class="wrapper">     
         <article class="col1">
 
           <div id="slider">
@@ -71,66 +56,18 @@
           <form id="form_1" action="search.php" method="post">
             <div class="pad1">
               <h3>Find Your Property</h3>
-              <div class="row"> Search :<br>
-                <input type="text" class="input" name="seacrhdata">
+              <div class="row_select"> Search By :   <p>
+                <select name="searchtype" required="required" >
+                  <option value="">Select Options</option>
+                  <option value="type">Residential Type</option>
+                  <option value="price">Residential Price</option>
+                  <option value="state">Residential State</option>
+                </select>
               </div>
-              <div class="row_select"> State : <br>
-                <select name="res_state">
-                    <option>&nbsp;</option>
-                    <option value="Melaka">Melaka</option>
-                    <option value="Johor">Johor</option>
-                    <option value="Negeri Sembilan">Negeri Sembilan</option>
-                    <option value="Selangor">Selangor</option>
-                    <option value="Kuala Lumpur">Kuala Lumpur</option>
-                    <option value="Pahang">Pahang</option>
-                    <option value="Terengganu">Terengganu</option>
-                    <option value="Penang">Penang</option>
-                    <option value="Perak">Perak</option>
-                    <option value="Kedah">Kedah</option>
-                    <option value="Kelantan">Kelantan</option>
-                    <option value="Perlis">Perlis</option>
-                    <option value="Sabah">Sabah</option>
-                    <option value="Sarawak">Sarawak</option>
-                  </select>
+              <div class="row_select"> <br>
+                <input type="text" name="search_data" size="18"  required="required" />
               </div>
-              <div class="row_select"> Cities : <br>
-                  <select name="res_cities">
-                    <option>&nbsp;</option>
-                    <option value="Ayer Keroh">Ayer Keroh</option>
-                    <option value="Durian Tunggal">Durian Tunggal</option>
-                    <option value="Batu Berendam">Batu Berendam</option>
-                    <option value="Jasin">Jasin</option>
-                  </select>
-              </div>
-              <div class="row_select"> Residential Type : <br>
-               <select name="residential_type">
-                    <option>&nbsp;</option>
-                    <option value="Apartment">Apartment</option>
-                    <option value="Flat">Flat</option>
-                    <option value="1-Sty Terrace">1-Sty Terrace</option>
-                    <option value="2-Sty Terrace">2-Sty Terrace</option>
-                    <option value="Town">Town House</option>
-                  </select>
-              </div>
-              <div class="row_select"> Furnishing : <br>
-                  <select name="furnishing">
-                    <option>&nbsp;</option>
-                    <option value="Fully Furnished">Fully Furnished</option>
-                    <option value="Partially Furnished">Partially Furnished</option>
-                    <option value="Not Furnished">Not Furnished</option>
-                  </select>
-                </div>
-              <div class="row_select"> Price (below than): <br>
-                  <select>
-                    <option>&nbsp;</option>
-                    <option value="200">RM 200</option>
-                    <option value="200">RM 400</option>
-                    <option value="200">RM 600</option>
-                    <option value="200">RM 800</option>
-                    <option value="200">RM 1000</option>
-                    <option value="200">RM 1200</option>
-                  </select>
-              </div>
+              
               <div class="row_select">
                 <input class="button" type="submit" name="search" value="Search">
               </div> <br>

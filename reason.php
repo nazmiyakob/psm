@@ -21,18 +21,9 @@
 
     <?php
       $ic_no = $_COOKIE['ic_no'];
-      //$residential_id = $_COOKIE['residential_id'];
-      
-      
 
       session_start();
       include_once('connect.php');
-
-      // $sqlSlc = "SELECT * from residential ";
-      // $querySlc = mysqli_query($con,$sqlSlc) or die(mysqli_error($con));
-      // $resultData = mysqli_fetch_assoc($querySlc);
-
-      // echo $resultData['residential_id'];
 
     ?>
 
@@ -80,9 +71,9 @@
 
               ?>
 
-               <h3><center> REASON FOR REJECT </center></h3>
+               <h2><center> REASON FOR REJECT </center></h2>
                   <form method="post">
-                    <div class="row"> Reason :<br>
+                    <div class="row">
                       <textarea  rows="10" cols="100" name="reject_because" required="required"></textarea>
                       <input class="button" type="submit" name="Submit" value="Submit">
                     </div>
@@ -156,14 +147,12 @@ if(isset($_POST['Submit']))
 
   if (mysqli_query($con, $sql)) 
   {
-    echo '<script language = "JavaScript">alert("SAVE")</script>';
-    print '<meta http-equiv="refresh" content="0;URL=approvement.php">';
+    echo '<script language = "JavaScript">alert("SAVE"); window.location.href="reject_mail.php?residential_id='.$residential_id.'"; </script>";</script>';
   }
   
   else
   {
-    echo '<script language = "JavaScript">alert("NOT SAVE")</script>';
-    print '<meta http-equiv="refresh" content="0;URL=approvement.php">';
+    echo '<script language = "JavaScript">alert("NOT SAVE"); window.location.href="approvement.php?residential_id='.$residential_id.'"; </script>";</script>';
   } 
 }
 
