@@ -57,7 +57,7 @@
 
         </article>
         <article class="col2">
-          <form id="form_1" action="search.php" method="post">
+          <form id="form_1" action="search_renting.php" method="post">
              <div class="pad1">
               <h3>Find Your Property</h3>
               <div class="row_select"> Search By :   <p>
@@ -104,7 +104,7 @@
 
             if($searchtype == 'type')
             {
-              $query = mysql_query("SELECT * FROM residential WHERE residential_type LIKE '%$searchdata%' and status='ACCEPT' AND sales='selling'") or die(mysql_error());
+              $query = mysql_query("SELECT * FROM residential WHERE residential_type LIKE '%$searchdata%' and status='ACCEPT' AND sales='Renting'") or die(mysql_error());
               $checkrow = mysql_num_rows($query);
               if($checkrow > 0)
               {
@@ -131,7 +131,7 @@
                 echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
                 echo "<input type='hidden' name='residential_id' value=" . $query2['residential_id'] . ">";
                 echo "<td align='center'>
-                        <button type='submit' class='button' span='2' >BUY</button></form>";
+                        <button type='submit' class='button' span='2' >RENT</button></form>";
                 echo "</td>";
                 echo "</td>";
                 echo "</tr>";
@@ -152,7 +152,7 @@
             
             else if($searchtype == 'price')
             {
-              $query = mysql_query("SELECT * FROM residential WHERE residential_price LIKE '$searchdata' and status='ACCEPT' AND sales='selling'") or die(mysql_error());
+              $query = mysql_query("SELECT * FROM residential WHERE residential_price LIKE '$searchdata' and status='ACCEPT' AND sales='Renting'") or die(mysql_error());
               $checkrow = mysql_num_rows($query);
               if($checkrow > 0)
               {
@@ -179,7 +179,7 @@
                 echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
                 echo "<input type='hidden' name='residential_id' value=" . $query2['residential_id'] . ">";
                 echo "<td align='center'>
-                        <button type='submit' class='button' span='2' >BUY</button></form>";
+                        <button type='submit' class='button' span='2' >RENT</button></form>";
                 echo "</td>";
                 echo "</td>";
                 echo "</tr>";
@@ -200,7 +200,7 @@
 
             else if($searchtype == 'state')
             {
-              $query = mysql_query("SELECT * FROM residential WHERE res_state LIKE '%$searchdata%' and status='ACCEPT' AND sales='selling'") or die(mysql_error());
+              $query = mysql_query("SELECT * FROM residential WHERE res_state LIKE '%$searchdata%' and status='ACCEPT' AND sales='Renting'") or die(mysql_error());
               $checkrow = mysql_num_rows($query);
               if($checkrow > 0)
               {
@@ -227,7 +227,7 @@
                 echo "<td align='center' valign='top'>&nbsp;" . $query2['res_cities'] . ", " . $query2['res_state'] . "</td>";
                 echo "<input type='hidden' name='residential_id' value=" . $query2['residential_id'] . ">";
                 echo "<td align='center'>
-                        <button type='submit' class='button' span='2' >BUY</button></form>";
+                        <button type='submit' class='button' span='2' >RENT</button></form>";
                 echo "</td>";
                 echo "</td>";
                 echo "</tr>";

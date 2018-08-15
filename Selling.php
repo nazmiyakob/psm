@@ -30,8 +30,11 @@
           <li><a href="index.php">Home</a></li>
           <li><a href="renting.php">Rent</a></li>
           <li id="menu_active"><a href="selling.php">Buy</a></li>
-          <li><a href="upload.php">Sell</a></li>
-          <li class="end"><a href="account.php">Login</a></li>
+          <li class="end"><a href="upload.php">Sell</a></li>
+        </ul>
+        <ul>
+          <li align="right"><a href="account.php">Login</li>
+          <li align="right">For Admin</a></li>
         </ul>
       </nav>
     </header>
@@ -82,19 +85,18 @@
 
 <div class="body3">
   <div class="main">
-    <center><h2>Selling</h2></center>
+    <center><h2>Buying</h2></center>
 
     <div class="wrapper pad_bot3">
       <?php 
         mysql_connect("localhost","root","");
         mysql_select_db("e_rented_house");
         
-        $query1=mysql_query("SELECT * FROM residential WHERE status='ACCEPT' AND sales='Selling'");
+        $query1=mysql_query("SELECT * FROM residential WHERE status='ACCEPT' AND sales='Selling' and status='accept'");
 
         echo "<p><br>
         <table border='10' text-align='center' width='100%'>
         <tr class='color2'>
-          <th><center><h3> Details </center></th>
           <th><center><h3> Residential </center></th>
           <th><center><h3> Price </center></th>
           <th><center><h3> Furnishing </center></th>
@@ -108,7 +110,6 @@
           echo "<form action='booking.php' method='POST'>";
           echo "";
           echo"<tr height='30px' class='color2'>";
-          echo "<td align='center' valign='top'>&nbsp;<a href='details.php'>Details</a></td>";
           echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
           echo "<td align='center' valign='top'>&nbsp;RM " . $query2['residential_price'] . "</td>";
           echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
@@ -168,35 +169,3 @@ $(window).load(function () {
 
 </body>
 </html>
-<?php
-if(isset($_POST['btn_submit']))
-{
-
-  $username = "root";
-  $password = "";
-  $hostname = "localhost";
-
-
-  $con = mysql_connect($hostname, $username, $password) or die("Could not connect to database");
-
-  mysql_select_db("e_rented_house", $con); 
-
-    $query=mysql_query("SELECT * FROM residential");
-    $numrows=mysql_num_rows($query);
-
-    $sql = "INSERT INTO residential (residential_id, res_state, res_cities, residential_type, furnishing, residential_year, residential_price, residential_description) VALUES('$residential_id', '$_POST[res_state]', '$_POST[res_cities]', '$_POST[residential_type]', '$_POST[furnishing]', '$_POST[residential_year]', '$_POST[residential_price]', '$_POST[residential_description]')";
-      
-      $result=mysql_query($sql);
-      
-      if($result)
-      {
-        echo '<script language = "JavaScript">alert("YOUR DATA HAS BEEN SAVED")</script>';
-        print '<meta http-equiv="refresh" content="0;URL=selling.php">';
-      }
-      else
-      {
-        echo '<script language = "JavaScript">alert("DATA NOT SAVED")</script>';
-        print '<meta http-equiv="refresh" content="0;URL=selling.php">';
-      }  
-}
-?>

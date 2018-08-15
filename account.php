@@ -30,8 +30,11 @@
           <li><a href="index.php">Home</a></li>
           <li><a href="renting.php">Rent</a></li>
           <li><a href="selling.php">Buy</a></li>
-          <li><a href="upload.php">Sell</a></li>
-          <li class="end" id="menu_active"><a href="account.php">Login</a></li>
+          <li class="end"><a href="upload.php">Sell</a></li>
+        </ul>
+        <ul>
+          <li align="right"><a href="account.php">Login</li>
+          <li align="right">For Admin</a></li>
         </ul>
       </nav>
     </header>
@@ -48,7 +51,7 @@
             <div class="pad1">
               <h3>Log In</h3>
               <div class="row"> IC Number :<br>
-                <input type="text" class="input" name="ic_no">
+                <input type="number" class="input" name="ic_no" placeholder="Number Only">
               </div><p>
               <div class="row"> Password :<br>
                 <input type="password" class="input" name="password">

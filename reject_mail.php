@@ -85,7 +85,8 @@ $bodyContent = '
 
     Yours sincerely,<p><br> 
 
-    <b>Admin</b><br> 
+    <b>Admin</b><br>
+    E-RENTED HOUSE SYSTEM
     
 '; 
 

@@ -14,6 +14,13 @@
 <script src="js/jquery.jqtransform.js" ></script>
 <script src="js/script.js"></script>
 <script src="js/jquery.easing.1.3.js"></script>
+<!-- <script src="js/jquery-3.3.1.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+<script src="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css"></script> -->
+
 <!--[if lt IE 9]>
 <script src="js/html5.js"></script>
 <style type="text/css">.bg{behavior:url("js/PIE.htc");}</style>
@@ -30,8 +37,11 @@
           <li><a href="index.php">Home</a></li>
           <li id="menu_active"><a href="renting.php">Rent</a></li>
           <li><a href="selling.php">Buy</a></li>
-          <li><a href="upload.php">Sell</a></li>
-          <li class="end"><a href="account.php">Login</a></li>
+          <li class="end"><a href="upload.php">Sell</a></li>
+        </ul>
+        <ul>
+          <li align="right"><a href="account.php">Login</li>
+          <li align="right">For Admin</a></li>
         </ul>
       </nav>
     </header>
@@ -53,7 +63,7 @@
           
         </article>
         <article class="col2">
-          <form id="form_1" action="search.php" method="post">
+          <form id="form_1" action="search_renting.php" method="post">
              <div class="pad1">
               <h3>Find Your Property</h3>
               <div class="row_select"> Search By :   <p>
@@ -78,6 +88,23 @@
     </section>
   </div>
 </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            
+            $("#type").click(function(){
+                $("#test").html('<input type="text">');
+            });
+            
+            $("#B").click(function(){
+                $("#AAAA").html('<input type="range">');
+            });
+            
+            $("#C").click(function(){
+                $("#AAAA").html('<input type="number">');
+            });
+        });
+        
+    </script>
 
 <div class="body3">
   <div class="main">
@@ -92,9 +119,8 @@
 
         if($query1)
         {
-          echo "<table border='10' text-align='center' width='100%'>
+          echo "<table border='10' id='entryTable' text-align='center' width='100%'>
           <tr class='color2'>
-            <th><center><h3> Details </center></th>
             <th><center><h3> Residential </center></th>
             <th><center><h3> Price </center></th>
             <th><center><h3> Furnishing </center></th>
@@ -108,7 +134,6 @@
             echo "<form action='booking.php' method='post'>";
           echo "";
           echo"<tr height='30px' class='color2'>";
-          echo "<td align='center' valign='top'>&nbsp;<a href='details.php'>Details</a></td>";
           echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
           echo "<td align='center' valign='top'>&nbsp;RM " . $query2['residential_price'] . "</td>";
           echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";
@@ -134,6 +159,13 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $('#entryTable').DataTable();
+  })
+
+</script>
 
 <script>Cufon.now();</script>
 <script>

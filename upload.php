@@ -30,8 +30,11 @@
           <li><a href="index.php">Home</a></li>
           <li><a href="renting.php">Rent</a></li>
           <li><a href="selling.php">Buy</a></li>
-          <li id="menu_active"><a href="upload.php">Sell</a></li>
-          <li class="end"><a href="account.php">Login</a></li>
+          <li class="end" id="menu_active"><a href="upload.php">Sell</a></li>
+        </ul>
+        <ul>
+          <li align="right"><a href="account.php">Login</li>
+          <li align="right">For Admin</a></li>
         </ul>
       </nav>
     </header>
@@ -50,7 +53,7 @@
               <h3>Sell Your Property</h3>
               <div class="row_select">
                 <div class="cols"> State : <br>
-                  <select name="res_state">
+                  <select name="res_state" required>
                     <option>&nbsp;</option>
                     <option value="Melaka">Melaka</option>
                     <option value="Johor">Johor</option>
@@ -81,7 +84,7 @@
               </div>
               <p>
                 <div class="row_select"> Cities : <br>
-                  <input type="text" name="res_cities" required>
+                  <input type="text" name="res_cities" pattern="[a-zA-Z\s]+" required>
                   
                 </div><p>
 
@@ -109,7 +112,7 @@
               </div><p>
 
               <div class="row_select"> Price (RM) : <br>  
-                <input type="number" name="residential_price" required>
+                <input type="number" name="residential_price" min="1" required>
               </div><p>
 
               <div class="row_select"> Residential Description : <br>  

@@ -82,16 +82,16 @@
                 <?php echo $fullname ?>
               </div>
               <div class="row"> Password :<br>
-                <input type="password" class="input" name="password" value="<?php echo $password ?>">
+                <input type="password" class="input" name="password" value="<?php echo $password ?>" required>
               </div>
               <div class="row"> Email :<br>
-                <input type="text" class="input" name="email" value="<?php echo $email ?>">
+                <input type="email" class="input" name="email" value="<?php echo $email ?>" required>
               </div>
               <div class="row"> Phone Number :<br>
-                <input type="text" class="input" name="phone_number" value="<?php echo $phone_number ?>">
+                <input type="number" class="input" name="phone_number" value="<?php echo $phone_number ?>" required>
               </div>
               <input type='hidden' name='user_type' value="Admin">
-              <input type='hidden' name='update2' value="<? '$ic_no' ?>" />
+              <input type='hidden' name='update2' value="<? '$ic_no' ?>" required>
 
               <div class="row_select">
                 <div class="cols pad_left1">

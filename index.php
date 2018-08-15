@@ -30,8 +30,11 @@
           <li id="menu_active"><a href="index.php">Home</a></li>
           <li><a href="renting.php">Rent</a></li>
           <li><a href="selling.php">Buy</a></li>
-          <li><a href="upload.php">Sell</a></li>
-          <li class="end"><a href="account.php">Login</a></li>
+          <li class="end"><a href="upload.php">Sell</a></li>
+        </ul>
+        <ul>
+          <li align="right"><a href="account.php">Login</li>
+          <li align="right">For Admin</a></li>
         </ul>
       </nav>
     </header>

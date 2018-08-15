@@ -77,7 +77,6 @@
                 <p>
                 <table border='10' text-align='center' width='100%'>
                 <tr>
-                  <th><center><h3> Details </center></th>
                   <th><center><h3> Residential </center></th>
                   <th><center><h3> Price </center></th>
                   <th><center><h3> Furnishing </center></th>
@@ -90,7 +89,6 @@
                 {
                   echo "<form action='' method='post'>";
                   echo"<tr height='30px' class='color2'>";
-                  echo "<td align='center' valign='top'>&nbsp;<a href='details.php'>Details</a></td>";
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['residential_type'] . "</td>";
                   echo "<td align='center' valign='top'>&nbsp;RM " . $query2['residential_price'] . "</td>";
                   echo "<td align='center' valign='top'>&nbsp;" . $query2['furnishing'] . "</td>";

@@ -56,21 +56,21 @@
             <div class="pad1">
               <h3>Register</h3>
               <div class="row"> IC Number :<br>
-                <input type="text" class="input" name="ic_no">
+                <input type="number" class="input" name="ic_no" required="required">
               </div>
               <div class="row"> Full Name :<br>
-                <input type="text" class="input" name="fullname">
+                <input type="text" class="input" name="fullname" pattern="[a-zA-Z\s]+" required="required">
               </div>
               <div class="row"> Password :<br>
-                <input type="password" class="input" name="password">
+                <input type="password" class="input" name="password" required="required">
               </div>
               <div class="row"> Email :<br>
-                <input type="text" class="input" name="email">
+                <input type="email" class="input" name="email" required="required">
               </div>
               <div class="row"> Phone Number :<br>
-                <input type="text" class="input" name="phone_number">
+                <input type="number" class="input" name="phone_number" required="required">
               </div>
-              <input type='hidden' name='user_type' value="Admin">
+              <input type='hidden' name='user_type' value="Admin" required="required">
 
               <div class="row_select">
                 <div class="cols pad_left1">
